@@ -50,5 +50,8 @@ TagManager:
   - name: asset
     uniqueID: 302356317
     locked: 0
+  - name: karalter
+    uniqueID: 2760148553
+    locked: 0
   m_RenderingLayers:
   - Default

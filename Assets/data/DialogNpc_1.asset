@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: DialogNpc_1
   m_EditorClassIdentifier: 
   lines:
-  - characterName: ryan
+  - speakerName: Ryan
     text: gimana nihh
-    speaker: {fileID: 0}
     onLineStart:
       m_PersistentCalls:
         m_Calls:
@@ -31,15 +30,15 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - characterName: bima
-    text: yahh, udah terlanjur
     speaker: {fileID: 0}
+  - speakerName: bima
+    text: yahh, udah terlanjur
     onLineStart:
       m_PersistentCalls:
         m_Calls: []
-  - characterName: tari
-    text: yaudahlah ayo
     speaker: {fileID: 0}
+  - speakerName: tari
+    text: yaudahlah ayo
     onLineStart:
       m_PersistentCalls:
         m_Calls:
@@ -55,3 +54,4 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    speaker: {fileID: 0}

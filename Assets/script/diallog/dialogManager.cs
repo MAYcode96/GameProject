@@ -1,13 +1,18 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
 
+    public UnityEvent onDialogueEnd;
+
     public GameObject dialoguePanel;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
+    public NPC currentNPC;
+    private bool firstDialogueDone = false;
 
     private DialogueSequence currentDialogue;
     private int index;
@@ -23,9 +28,13 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
     }
 
-    public void StartDialogue(DialogueSequence dialogue)
+    public void StartDialogue(DialogueSequence dialogue, NPC npc = null)
     {
+        if (dialogue == null) return;
+
         currentDialogue = dialogue;
+        currentNPC = npc;
+
         index = 0;
         isPlaying = true;
 
@@ -52,17 +61,16 @@ public class DialogueManager : MonoBehaviour
     {
         var line = currentDialogue.lines[index];
 
-        nameText.text = line.characterName;
+        nameText.text = line.speakerName;
         dialogueText.text = line.text;
 
-        // ?? Trigger event (cutscene hook)
+        // 🎬 Event per line
         line.onLineStart?.Invoke();
 
-        // ?? Fokus ke speaker (optional)
+        // 🎥 Optional camera focus
         if (line.speaker != null)
         {
             Debug.Log("Focus ke: " + line.speaker.name);
-            // nanti bisa sambung ke camera system
         }
     }
 
@@ -70,6 +78,20 @@ public class DialogueManager : MonoBehaviour
     {
         isPlaying = false;
         dialoguePanel.SetActive(false);
+
+        // 🔥 hanya untuk dialog pertama
+        if (!firstDialogueDone && currentNPC != null)
+        {
+            firstDialogueDone = true;
+
+            NPCMover mover = currentNPC.GetComponent<NPCMover>();
+            if (mover != null)
+            {
+                mover.MoveToTarget(); // NPC jalan
+            }
+        }
+
+        onDialogueEnd?.Invoke();
     }
 
     public bool IsPlaying() => isPlaying;

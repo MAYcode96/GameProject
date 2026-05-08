@@ -13,6 +13,16 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Start()
     {
+
+        if (!dialogueManager.IsPlaying() && currentNPC != null)
+        {
+            pressEText.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                dialogueManager.StartDialogue(currentNPC.GetCurrentDialogue(), currentNPC);
+            }
+        }
         pressEText.SetActive(false);
         StartCoroutine(StartDialogueDelay());
     }
@@ -21,26 +31,10 @@ public class PlayerInteraction : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
 
-        if (startingNPC == null)
-        {
-            Debug.LogError("Starting NPC belum di-assign!");
-            yield break;
-        }
-
-        if (dialogueManager == null)
-        {
-            Debug.LogError("DialogueManager belum di-assign!");
-            yield break;
-        }
-
-        if (startingNPC.dialogue == null)
-        {
-            Debug.LogError("Dialogue di NPC kosong!");
-            yield break;
-        }
+        if (startingNPC == null || dialogueManager == null) yield break;
 
         currentNPC = startingNPC;
-        dialogueManager.StartDialogue(currentNPC.dialogue);
+        dialogueManager.StartDialogue(currentNPC.GetCurrentDialogue(), currentNPC);
     }
 
     void Update()
@@ -63,8 +57,7 @@ public class PlayerInteraction : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                dialogueManager.StartDialogue(currentNPC.dialogue);
-                pressEText.SetActive(false);
+                dialogueManager.StartDialogue(currentNPC.GetCurrentDialogue(), currentNPC);
             }
         }
         else
@@ -76,20 +69,12 @@ public class PlayerInteraction : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         NPC npc = other.GetComponent<NPC>();
-
-        if (npc != null)
-        {
-            currentNPC = npc;
-        }
+        if (npc != null) currentNPC = npc;
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         NPC npc = other.GetComponent<NPC>();
-
-        if (npc != null && npc == currentNPC)
-        {
-            currentNPC = null;
-        }
+        if (npc != null && npc == currentNPC) currentNPC = null;
     }
 }

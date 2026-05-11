@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
         if (moveInput > 0)
         {
             transform.localScale = new Vector3(0.4121328f, 0.4121328f, 0.4121328f);
-        }else if (moveInput < 0)
+        }
+        else if (moveInput < 0)
         {
             transform.localScale = new Vector3(-0.4121328f, 0.4121328f, 0.4121328f);
         }
@@ -33,7 +34,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Gerak kiri kanan (NO SLIDE)
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, 0);
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
     }
 }

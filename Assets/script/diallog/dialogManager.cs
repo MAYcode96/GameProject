@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class DialogueManager : MonoBehaviour
     {
         Instance = this;
     }
+
+    [Header("Scene Tujuan")]
+    [SerializeField] private string targetScene;
 
     [System.Serializable]
     public class DialogueData
@@ -45,6 +49,8 @@ public class DialogueManager : MonoBehaviour
     private int currentIndex = 0;
 
     private bool isTyping = false;
+
+    public bool isDialogueOpen;
 
     private Coroutine typingCoroutine;
 
@@ -104,6 +110,8 @@ public class DialogueManager : MonoBehaviour
 
         // Mulai typing baru
         typingCoroutine = StartCoroutine(TypeText(currentDialogue.text));
+
+        isDialogueOpen = true;
     }
 
     IEnumerator TypeText(string text)
@@ -137,8 +145,14 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        
         dialoguePanel.gameObject.SetActive(false);
+        isDialogueOpen = false;
 
-        Debug.Log("Dialogue selesai");
-    }
+        if (!string.IsNullOrEmpty(targetScene))
+            {
+                SceneManager.LoadScene(targetScene);
+            }
+
+        }
 }

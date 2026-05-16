@@ -56,5 +56,8 @@ TagManager:
   - name: bus
     uniqueID: 3607856655
     locked: 0
+  - name: UI
+    uniqueID: 4284200463
+    locked: 0
   m_RenderingLayers:
   - Default

@@ -1,16 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class SceneTrigger : MonoBehaviour
 {
     public string sceneName;
-    public GameObject pressText;
+    public Image alertPanel;
 
     private bool playerInRange;
 
     void Start()
     {
-        pressText.SetActive(false);
+        alertPanel.gameObject.SetActive(false);
     }
 
     void Update()
@@ -26,7 +28,8 @@ public class SceneTrigger : MonoBehaviour
         if (other.CompareTag("player"))
         {
             playerInRange = true;
-            pressText.SetActive(true);
+
+            alertPanel.gameObject.SetActive(true);
         }
     }
 
@@ -35,7 +38,8 @@ public class SceneTrigger : MonoBehaviour
         if (other.CompareTag("player"))
         {
             playerInRange = false;
-            pressText.SetActive(false);
+
+            alertPanel.gameObject.SetActive(false);
         }
     }
 }

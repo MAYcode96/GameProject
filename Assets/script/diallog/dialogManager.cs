@@ -1,98 +1,144 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Events;
+using System.Collections;
 
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
-
-    public UnityEvent onDialogueEnd;
-
-    public GameObject dialoguePanel;
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI dialogueText;
-    public NPC currentNPC;
-    private bool firstDialogueDone = false;
-
-    private DialogueSequence currentDialogue;
-    private int index;
-    private bool isPlaying;
 
     void Awake()
     {
         Instance = this;
     }
 
+    [System.Serializable]
+    public class DialogueData
+    {
+        public string speaker;
+
+        [TextArea(3, 5)]
+        public string text;
+
+        public Sprite pfp;
+        public Sprite image;
+    }
+
+    [Header("Dialogue")]
+    public DialogueData[] dialogues;
+
+    [Header("UI")]
+    public Image dialoguePanel;
+
+    public TMP_Text nameText;
+    public TMP_Text dialogueText;
+
+    public Image pfpImage;
+    public Image bgImage;
+
+    [Header("Input")]
+    public KeyCode nextKey = KeyCode.E;
+
+    [Header("Typing Effect")]
+    public float typingSpeed = 0.03f;
+
+    private int currentIndex = 0;
+
+    private bool isTyping = false;
+
+    private Coroutine typingCoroutine;
+
     void Start()
     {
-        dialoguePanel.SetActive(false);
+        ShowDialogue();
     }
 
-    public void StartDialogue(DialogueSequence dialogue, NPC npc = null)
+    void Update()
     {
-        if (dialogue == null) return;
+        if (Input.GetKeyDown(nextKey))
+        {
+            // Kalau text masih mengetik
+            if (isTyping)
+            {
+                StopCoroutine(typingCoroutine);
 
-        currentDialogue = dialogue;
-        currentNPC = npc;
+                dialogueText.text = dialogues[currentIndex].text;
 
-        index = 0;
-        isPlaying = true;
+                isTyping = false;
 
-        dialoguePanel.SetActive(true);
-        ShowLine();
+                return;
+            }
+
+            // Kalau sudah selesai mengetik
+            NextDialogue();
+        }
     }
 
-    public void NextLine()
+    void ShowDialogue()
     {
-        if (!isPlaying) return;
+        DialogueData currentDialogue = dialogues[currentIndex];
 
-        index++;
+        // Aktifkan panel
+        dialoguePanel.gameObject.SetActive(true);
 
-        if (index >= currentDialogue.lines.Length)
+        // Nama
+        nameText.text = currentDialogue.speaker;
+
+        // PFP
+        if (currentDialogue.pfp != null)
+        {
+            pfpImage.sprite = currentDialogue.pfp;
+        }
+
+        // Background
+        if (currentDialogue.image != null)
+        {
+            bgImage.sprite = currentDialogue.image;
+        }
+
+        // Stop typing lama
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+
+        // Mulai typing baru
+        typingCoroutine = StartCoroutine(TypeText(currentDialogue.text));
+    }
+
+    IEnumerator TypeText(string text)
+    {
+        isTyping = true;
+
+        dialogueText.text = "";
+
+        foreach (char letter in text.ToCharArray())
+        {
+            dialogueText.text += letter;
+
+            yield return new WaitForSeconds(typingSpeed);
+        }
+
+        isTyping = false;
+    }
+
+    void NextDialogue()
+    {
+        currentIndex++;
+
+        if (currentIndex >= dialogues.Length)
         {
             EndDialogue();
             return;
         }
 
-        ShowLine();
-    }
-
-    void ShowLine()
-    {
-        var line = currentDialogue.lines[index];
-
-        nameText.text = line.speakerName;
-        dialogueText.text = line.text;
-
-        // 🎬 Event per line
-        line.onLineStart?.Invoke();
-
-        // 🎥 Optional camera focus
-        if (line.speaker != null)
-        {
-            Debug.Log("Focus ke: " + line.speaker.name);
-        }
+        ShowDialogue();
     }
 
     void EndDialogue()
     {
-        isPlaying = false;
-        dialoguePanel.SetActive(false);
+        dialoguePanel.gameObject.SetActive(false);
 
-        // 🔥 hanya untuk dialog pertama
-        if (!firstDialogueDone && currentNPC != null)
-        {
-            firstDialogueDone = true;
-
-            NPCMover mover = currentNPC.GetComponent<NPCMover>();
-            if (mover != null)
-            {
-                mover.MoveToTarget(); // NPC jalan
-            }
-        }
-
-        onDialogueEnd?.Invoke();
+        Debug.Log("Dialogue selesai");
     }
-
-    public bool IsPlaying() => isPlaying;
 }

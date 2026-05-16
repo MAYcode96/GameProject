@@ -1,7 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Dialogue/Sequence")]
-public class DialogueSequence : ScriptableObject
+[System.Serializable]
+public class DialogueLine
 {
-    public DialogueLine[] lines;
+    public string speaker;
+    public string text;
+
+    public Sprite background;
+    public Sprite portrait;
 }

@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (DialogueManager.Instance != null && DialogueManager.Instance.IsPlaying())
+        if (DialogueManager.Instance != null)
         {
             rb.linearVelocity = Vector2.zero;
             return;
@@ -24,11 +24,11 @@ public class PlayerController : MonoBehaviour
 
         if (moveInput > 0)
         {
-            transform.localScale = new Vector3(0.4121328f, 0.4121328f, 0.4121328f);
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         }
         else if (moveInput < 0)
         {
-            transform.localScale = new Vector3(-0.4121328f, 0.4121328f, 0.4121328f);
+            transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
         }
     }
 

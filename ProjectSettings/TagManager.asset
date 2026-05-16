@@ -17,7 +17,7 @@ TagManager:
   - player
   - npc
   - triggerNPC
-  - 
+  - bus
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: karalter
     uniqueID: 2760148553
+    locked: 0
+  - name: bus
+    uniqueID: 3607856655
     locked: 0
   m_RenderingLayers:
   - Default

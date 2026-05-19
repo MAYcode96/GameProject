@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage2(desa).unity
     guid: 9a608e7873726944ea00e08e8b6e0e2b
   - enabled: 1
-    path: Assets/Scenes/Stage4(taman).unity
+    path: Assets/Scenes/Stage4(sungai).unity
     guid: d99c2397bd17b0e47a8b88780e689ff6
   - enabled: 1
     path: Assets/Scenes/Stage3(vila).unity

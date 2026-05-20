@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &97130442 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7749181388033639872, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
+  m_PrefabInstance: {fileID: 3105194508161722922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &139102795 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 584652696201174182, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
@@ -130,6 +135,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &269190107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 269190108}
+  - component: {fileID: 269190109}
+  m_Layer: 0
+  m_Name: cutScene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &269190108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269190107}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1757618522}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &269190109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269190107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891339727d70a04449c549c3fc36a927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueData: {fileID: 11400000, guid: 78c30bb7d8d732447a0f978d8ffed91a, type: 2}
+  targetScene: stage1(gerbang)
+  triggerOnce: 1
 --- !u!1 &402897033
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,42 +226,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6e5df42940bed4a8a6cd8d90e79efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: stage1(gerbang)
-  dialogues:
-  - speaker: Ryan
-    text: " \u201CDesa Karang Turi.\""
-    pfp: {fileID: 1102108819684225473, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
-    image: {fileID: 6799216245798168510, guid: 9c671fba460bbea47a2d5e138ebd0e7c, type: 3}
-  - speaker: ryan
-    text: "\"Krisis air Bersih\u2026 tapi hasil panen mereka nomor satu di kabupaten
-      ini.\u201D"
-    pfp: {fileID: 0}
-    image: {fileID: 6799216245798168510, guid: 9c671fba460bbea47a2d5e138ebd0e7c, type: 3}
-  - speaker: Bima
-    text: "\u201CKok bisa sih, tempat kek gitu tuh biasanya nggak normal, Yan.\u201D\r\n"
-    pfp: {fileID: 0}
-    image: {fileID: 8257921945241284986, guid: db888c91a081ccf4a93006176e280c5e, type: 3}
-  - speaker: Tari
-    text: " \u201CJustru itu. ini bukan sekadar konten, kita bisa cari tau kok bisa
-      gitu.\u201D\r\n"
-    pfp: {fileID: 0}
-    image: {fileID: 8257921945241284986, guid: db888c91a081ccf4a93006176e280c5e, type: 3}
-  - speaker: Ryan
-    text: "\u201CKalau teknologi filter ini berhasil dan masalah pangan ini diketahui
-      kita bisa bantu lebih banyak tempat.\"\r\n"
-    pfp: {fileID: 0}
-    image: {fileID: -4748702184737024587, guid: f39f245b36ce7a641992732b5266bb2a, type: 3}
-  - speaker: Ryan
-    text: "\"ini jadi langkah awal kita.\u201D"
-    pfp: {fileID: 0}
-    image: {fileID: 8257921945241284986, guid: db888c91a081ccf4a93006176e280c5e, type: 3}
-  dialoguePanel: {fileID: 1264060447}
-  nameText: {fileID: 1310336530}
+  dialoguePanel: {fileID: 97130442}
+  speakerText: {fileID: 1310336530}
   dialogueText: {fileID: 445350839}
   pfpImage: {fileID: 139102795}
-  bgImage: {fileID: 987774963}
-  nextKey: 101
+  backgroundImage: {fileID: 987774963}
   typingSpeed: 0.05
+  nextKey: 101
+  isDialogueOpen: 0
 --- !u!114 &445350839 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8018441951234165507, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
@@ -744,17 +768,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5205540991009656996, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
   m_PrefabInstance: {fileID: 3105194508161722922}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1264060447 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5113467782775852817, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
-  m_PrefabInstance: {fileID: 3105194508161722922}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1310336530 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4525423597903583647, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
@@ -797,6 +810,7 @@ Transform:
   m_Children:
   - {fileID: 402897034}
   - {fileID: 544621858}
+  - {fileID: 269190108}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3105194508161722922

@@ -1,117 +1,184 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using System.Collections;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
 
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
 
-    void Awake()
-    {
-        Instance = this;
-    }
-
-    [Header("Scene Tujuan")]
-    [SerializeField] private string targetScene;
-
-    [System.Serializable]
-    public class DialogueData
-    {
-        public string speaker;
-
-        [TextArea(3, 5)]
-        public string text;
-
-        public Sprite pfp;
-        public Sprite image;
-    }
-
-    [Header("Dialogue")]
-    public DialogueData[] dialogues;
-
     [Header("UI")]
-    public Image dialoguePanel;
+    public GameObject dialoguePanel;
 
-    public TMP_Text nameText;
+    public TMP_Text speakerText;
     public TMP_Text dialogueText;
 
     public Image pfpImage;
-    public Image bgImage;
+    public Image backgroundImage;
+
+    [Header("Typing")]
+    public float typingSpeed = 0.03f;
 
     [Header("Input")]
     public KeyCode nextKey = KeyCode.E;
 
-    [Header("Typing Effect")]
-    public float typingSpeed = 0.03f;
+    private DialogueSequence currentDialogue;
+    private int currentIndex;
 
-    private int currentIndex = 0;
-
-    private bool isTyping = false;
-
+    private bool isTyping;
     public bool isDialogueOpen;
+
+    private bool canPressNext;
 
     private Coroutine typingCoroutine;
 
+    private string targetScene;
+
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+    }
+
     void Start()
     {
-        ShowDialogue();
+        dialoguePanel.SetActive(false);
+
+        isDialogueOpen = false;
     }
 
     void Update()
     {
+        if (!isDialogueOpen)
+            return;
+
+        if (currentDialogue == null)
+            return;
+
+        if (!canPressNext)
+            return;
+
         if (Input.GetKeyDown(nextKey))
         {
-            // Kalau text masih mengetik
             if (isTyping)
             {
-                StopCoroutine(typingCoroutine);
-
-                dialogueText.text = dialogues[currentIndex].text;
-
-                isTyping = false;
-
-                return;
+                SkipTyping();
             }
-
-            // Kalau sudah selesai mengetik
-            NextDialogue();
+            else
+            {
+                NextDialogue();
+            }
         }
+    }
+
+    public void StartDialogue(DialogueSequence dialogueData, string nextScene = "")
+    {
+        // cegah spam
+        if (isDialogueOpen)
+            return;
+
+        // data dialog
+        currentDialogue = dialogueData;
+
+        currentIndex = 0;
+
+        targetScene = nextScene;
+
+        isDialogueOpen = true;
+
+        canPressNext = false;
+
+        // reset ui
+        speakerText.text = "";
+        dialogueText.text = "";
+
+        // reset gambar
+        if (pfpImage != null)
+        {
+            pfpImage.sprite = null;
+            pfpImage.gameObject.SetActive(false);
+        }
+
+        // aktifkan panel
+        dialoguePanel.SetActive(true);
+
+        // paksa unity render panel dulu
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(
+            dialoguePanel.GetComponent<RectTransform>()
+        );
+
+        // mulai routine
+        StartCoroutine(StartDialogueRoutine());
+    }
+
+    IEnumerator StartDialogueRoutine()
+    {
+        // tunggu 1 frame penuh
+        yield return new WaitForEndOfFrame();
+
+        Canvas.ForceUpdateCanvases();
+
+        // tampilkan dialog pertama
+        ShowDialogue();
+
+        // delay input
+        yield return new WaitForSeconds(0.15f);
+
+        canPressNext = true;
     }
 
     void ShowDialogue()
     {
-        DialogueData currentDialogue = dialogues[currentIndex];
+        if (currentDialogue == null)
+            return;
 
-        // Aktifkan panel
-        dialoguePanel.gameObject.SetActive(true);
+        if (currentIndex >= currentDialogue.lines.Length)
+            return;
 
-        // Nama
-        nameText.text = currentDialogue.speaker;
+        DialogueSequence.DialogueLine line =
+            currentDialogue.lines[currentIndex];
 
-        // PFP
-        if (currentDialogue.pfp != null)
-        {
-            pfpImage.sprite = currentDialogue.pfp;
-        }
-
-        // Background
-        if (currentDialogue.image != null)
-        {
-            bgImage.sprite = currentDialogue.image;
-        }
-
-        // Stop typing lama
+        // stop typing lama
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
         }
 
-        // Mulai typing baru
-        typingCoroutine = StartCoroutine(TypeText(currentDialogue.text));
+        // speaker
+        speakerText.text = line.speaker;
 
-        isDialogueOpen = true;
+        // kosongkan text dulu
+        dialogueText.text = "";
+
+        // profile picture
+        if (line.pfp != null)
+        {
+            pfpImage.sprite = line.pfp;
+            pfpImage.gameObject.SetActive(true);
+        }
+        else
+        {
+            pfpImage.gameObject.SetActive(false);
+        }
+
+        // background
+        if (line.background != null)
+        {
+            backgroundImage.sprite = line.background;
+        }
+
+        // paksa update canvas
+        Canvas.ForceUpdateCanvases();
+
+        // mulai typing
+        typingCoroutine = StartCoroutine(TypeText(line.text));
     }
 
     IEnumerator TypeText(string text)
@@ -120,7 +187,7 @@ public class DialogueManager : MonoBehaviour
 
         dialogueText.text = "";
 
-        foreach (char letter in text.ToCharArray())
+        foreach (char letter in text)
         {
             dialogueText.text += letter;
 
@@ -130,11 +197,24 @@ public class DialogueManager : MonoBehaviour
         isTyping = false;
     }
 
+    void SkipTyping()
+    {
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+
+        dialogueText.text =
+            currentDialogue.lines[currentIndex].text;
+
+        isTyping = false;
+    }
+
     void NextDialogue()
     {
         currentIndex++;
 
-        if (currentIndex >= dialogues.Length)
+        if (currentIndex >= currentDialogue.lines.Length)
         {
             EndDialogue();
             return;
@@ -145,14 +225,26 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        
-        dialoguePanel.gameObject.SetActive(false);
+        // stop coroutine
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+        }
+
+        // reset state
+        isTyping = false;
+
         isDialogueOpen = false;
 
-        if (!string.IsNullOrEmpty(targetScene))
-            {
-                SceneManager.LoadScene(targetScene);
-            }
+        currentDialogue = null;
 
+        // tutup panel
+        dialoguePanel.SetActive(false);
+
+        // pindah scene kalau ada
+        if (!string.IsNullOrEmpty(targetScene))
+        {
+            SceneManager.LoadScene(targetScene);
         }
+    }
 }

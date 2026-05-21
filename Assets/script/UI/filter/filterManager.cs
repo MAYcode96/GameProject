@@ -4,32 +4,79 @@ using System.Collections;
 
 public class FakeBloomEffect : MonoBehaviour
 {
+    public static FakeBloomEffect Instance;
+
+    [Header("UI")]
     public Image glowOverlay;
 
-    [Header("Bloom")]
-    public float startAlpha = 0.7f;
-    public float endAlpha = 0f;
+    [Header("Default Duration")]
+    public float defaultDuration = 2f;
 
-    public float duration = 3f;
+    Coroutine fadeCoroutine;
 
-    void Start()
+    void Awake()
     {
-        StartCoroutine(BloomFade());
+        Instance = this;
     }
 
-    IEnumerator BloomFade()
+    // =========================
+    // FADE IN
+    // terang -> hilang
+    // =========================
+    public void FadeIn()
     {
+        FadeIn(defaultDuration);
+    }
+
+    public void FadeIn(float duration)
+    {
+        StartFade(1f, 0f, duration);
+    }
+
+    // =========================
+    // FADE OUT
+    // hilang -> terang
+    // =========================
+    public void FadeOut()
+    {
+        FadeOut(defaultDuration);
+    }
+
+    public void FadeOut(float duration)
+    {
+        StartFade(0f, 1f, duration);
+    }
+
+    // =========================
+    // CUSTOM FADE
+    // =========================
+    public void StartFade(float from, float to, float duration)
+    {
+        if (fadeCoroutine != null)
+        {
+            StopCoroutine(fadeCoroutine);
+        }
+
+        fadeCoroutine = StartCoroutine(
+            FadeRoutine(from, to, duration)
+        );
+    }
+
+    IEnumerator FadeRoutine(float from, float to, float duration)
+    {
+        float time = 0f;
+
         Color color = glowOverlay.color;
 
-        float time = 0;
+        glowOverlay.gameObject.SetActive(true);
 
         while (time < duration)
         {
             time += Time.deltaTime;
 
             float alpha = Mathf.Lerp(
-                startAlpha,
-                endAlpha,
+                from,
+                to,
                 time / duration
             );
 
@@ -47,7 +94,13 @@ public class FakeBloomEffect : MonoBehaviour
             color.r,
             color.g,
             color.b,
-            endAlpha
+            to
         );
+
+        // kalau sudah hilang total
+        if (to <= 0f)
+        {
+            glowOverlay.gameObject.SetActive(false);
+        }
     }
 }

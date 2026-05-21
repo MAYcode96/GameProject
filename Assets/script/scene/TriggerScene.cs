@@ -13,6 +13,7 @@ public class SceneTrigger : MonoBehaviour
     void Start()
     {
         alertPanel.gameObject.SetActive(false);
+        FakeBloomEffect.Instance.FadeIn();
     }
 
     void Update()
@@ -20,6 +21,7 @@ public class SceneTrigger : MonoBehaviour
         if (playerInRange && Input.GetKeyDown(KeyCode.W))
         {
             SceneManager.LoadScene(sceneName);
+            FakeBloomEffect.Instance.FadeOut();
         }
     }
 

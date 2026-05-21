@@ -17,7 +17,7 @@ public class CutsceneTrigger : MonoBehaviour
     {
         // tunggu DialogueManager selesai Awake
         yield return null;
-
+        
         TriggerDialogue();
     }
 
@@ -38,5 +38,7 @@ public class CutsceneTrigger : MonoBehaviour
             dialogueData,
             targetScene
         );
+
+       
     }
 }

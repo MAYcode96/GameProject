@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialoguePanel.SetActive(false);
-
+        FakeBloomEffect.Instance.FadeIn();
         isDialogueOpen = false;
     }
 
@@ -224,26 +224,36 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        // stop coroutine
+        StartCoroutine(EndDialogueRoutine());
+    }
+
+    IEnumerator EndDialogueRoutine()
+    {
+        // stop typing
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
         }
 
-        // reset state
         isTyping = false;
 
         isDialogueOpen = false;
 
         currentDialogue = null;
 
-        // tutup panel
         dialoguePanel.SetActive(false);
-
-        // pindah scene kalau ada
+        // pindah scene
         if (!string.IsNullOrEmpty(targetScene))
         {
+            // fade out dulu
+            if (FakeBloomEffect.Instance != null)
+            {
+                FakeBloomEffect.Instance.FadeOut(2f);
+
+                yield return new WaitForSeconds(2f);
+            }
             SceneManager.LoadScene(targetScene);
+
         }
     }
 }

@@ -967,6 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ba716ecf8d0fa448aeb6e47be10522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alertPanel: {fileID: 1120615147}
   dialogueData: {fileID: 11400000, guid: e7fb68b248a907641bc0743195f999bf, type: 2}
   targetScene: 
   interactionType: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class CutsceneTrigger : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class CutsceneTrigger : MonoBehaviour
 
     private bool hasTriggered;
 
-    void Start()
+    IEnumerator Start()
     {
+        // tunggu DialogueManager selesai Awake
+        yield return null;
+
         TriggerDialogue();
     }
 
@@ -22,8 +26,17 @@ public class CutsceneTrigger : MonoBehaviour
         if (triggerOnce && hasTriggered)
             return;
 
+        if (DialogueManager.Instance == null)
+        {
+            Debug.LogError("DialogueManager tidak ditemukan!");
+            return;
+        }
+
         hasTriggered = true;
 
-        DialogueManager.Instance.StartDialogue(dialogueData, targetScene);
+        DialogueManager.Instance.StartDialogue(
+            dialogueData,
+            targetScene
+        );
     }
 }

@@ -14,6 +14,9 @@ public class NPC : MonoBehaviour
     [Header("Dialogue")]
     public DialogueSequence dialogueData;
 
+    [Header("After Dialogue")]
+    public bool moveAfterDialogue;
+
     [Header("Optional")]
     public string targetScene;
 
@@ -53,17 +56,27 @@ public class NPC : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("player"))
-        {
-            playerInRange = true;
+        if (!other.CompareTag("player"))
+            return;
 
-            alertPanel.gameObject.SetActive(true);
-        }
+        playerInRange = true;
 
-        // auto interaction
+        // AUTO
         if (interactionType == InteractionType.Auto)
         {
+            if (alertPanel != null)
+            {
+                alertPanel.gameObject.SetActive(false);
+            }
+
             StartNPCDialogue();
+            return;
+        }
+
+        // PRESS KEY
+        if (alertPanel != null)
+        {
+            alertPanel.gameObject.SetActive(true);
         }
     }
 
@@ -103,5 +116,18 @@ public class NPC : MonoBehaviour
             dialogueData,
             targetScene
         );
+    }
+
+    public void OnDialogueFinished()
+    {
+        if (moveAfterDialogue)
+        {
+            NPCMover mover = GetComponent<NPCMover>();
+
+            if (mover != null)
+            {
+                mover.StartMove();
+            }
+        }
     }
 }

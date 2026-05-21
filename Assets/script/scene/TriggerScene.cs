@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
+using System.Collections;
 
 public class SceneTrigger : MonoBehaviour
 {
@@ -9,20 +9,37 @@ public class SceneTrigger : MonoBehaviour
     public Image alertPanel;
 
     private bool playerInRange;
+    private bool isLoading;
 
     void Start()
     {
         alertPanel.gameObject.SetActive(false);
-        FakeBloomEffect.Instance.FadeIn();
+
+        if (FakeBloomEffect.Instance != null)
+        {
+            FakeBloomEffect.Instance.FadeIn();
+        }
     }
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.W))
+        if (playerInRange && !isLoading && Input.GetKeyDown(KeyCode.W))
         {
-            SceneManager.LoadScene(sceneName);
-            FakeBloomEffect.Instance.FadeOut();
+            StartCoroutine(LoadSceneRoutine());
         }
+    }
+
+    IEnumerator LoadSceneRoutine()
+    {
+        isLoading = true;
+
+        float duration = FakeBloomEffect.Instance.fadeOutDuration;
+
+        FakeBloomEffect.Instance.FadeOut();
+
+        yield return new WaitForSeconds(duration);
+
+        SceneManager.LoadScene(sceneName);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -31,7 +48,10 @@ public class SceneTrigger : MonoBehaviour
         {
             playerInRange = true;
 
-            alertPanel.gameObject.SetActive(true);
+            if (alertPanel != null)
+            {
+                alertPanel.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -41,7 +61,10 @@ public class SceneTrigger : MonoBehaviour
         {
             playerInRange = false;
 
-            alertPanel.gameObject.SetActive(false);
+            if (alertPanel != null)
+            {
+                alertPanel.gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -356,9 +356,10 @@ GameObject:
   - component: {fileID: 407688949}
   - component: {fileID: 407688948}
   - component: {fileID: 407688950}
-  m_Layer: 0
+  - component: {fileID: 407688951}
+  m_Layer: 7
   m_Name: kangcilok
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -427,11 +428,11 @@ Transform:
   m_GameObject: {fileID: 407688947}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.2178574, y: -3.555, z: 0}
+  m_LocalPosition: {x: -43.900383, y: -25.753454, z: 0.4847979}
   m_LocalScale: {x: 1.5, y: 1.5, z: 0.4121328}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1986831276}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &407688950
 BoxCollider2D:
@@ -479,6 +480,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.18, y: 4.61}
   m_EdgeRadius: 0
+--- !u!114 &407688951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407688947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ba716ecf8d0fa448aeb6e47be10522, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alertPanel: {fileID: 0}
+  dialogueData: {fileID: 0}
+  targetScene: 
+  interactionType: 1
+  interactKey: 101
+  oneTimeOnly: 0
 --- !u!1 &510153954
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,7 +607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8545430085111513458, guid: 084122ac59d26944bbbe1789540fb210, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.51
+      value: 16.4
       objectReference: {fileID: 0}
     - target: {fileID: 8545430085111513458, guid: 084122ac59d26944bbbe1789540fb210, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1205,6 +1224,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 294647984}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1986831275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1986831276}
+  m_Layer: 0
+  m_Name: NPC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1986831276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1986831275}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40.682526, y: 22.198454, z: -0.4847979}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 407688949}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2097662213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,8 +1353,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 857050435}
-  - {fileID: 407688949}
   - {fileID: 294647984}
   - {fileID: 2097662215}
   - {fileID: 1235800152}
   - {fileID: 778437646}
+  - {fileID: 1986831276}

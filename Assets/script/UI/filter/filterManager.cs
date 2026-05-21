@@ -9,8 +9,9 @@ public class FakeBloomEffect : MonoBehaviour
     [Header("UI")]
     public Image glowOverlay;
 
-    [Header("Default Duration")]
-    public float defaultDuration = 2f;
+    [Header("Duration")]
+    public float fadeInDuration = 2f;
+    public float fadeOutDuration = 2f;
 
     Coroutine fadeCoroutine;
 
@@ -25,7 +26,7 @@ public class FakeBloomEffect : MonoBehaviour
     // =========================
     public void FadeIn()
     {
-        FadeIn(defaultDuration);
+        StartFade(1f, 0f, fadeInDuration);
     }
 
     public void FadeIn(float duration)
@@ -39,7 +40,7 @@ public class FakeBloomEffect : MonoBehaviour
     // =========================
     public void FadeOut()
     {
-        FadeOut(defaultDuration);
+        StartFade(0f, 1f, fadeOutDuration);
     }
 
     public void FadeOut(float duration)

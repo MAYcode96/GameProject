@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class NPC : MonoBehaviour
         Auto,
         PressKey
     }
+
+    public Image alertPanel;
 
     [Header("Dialogue")]
     public DialogueSequence dialogueData;
@@ -26,6 +29,10 @@ public class NPC : MonoBehaviour
     private bool playerInRange;
     private bool hasTriggered;
 
+      void Start()
+    {
+        alertPanel.gameObject.SetActive(false);
+    }
     void Update()
     {
         // mode tombol
@@ -46,10 +53,12 @@ public class NPC : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("player"))
-            return;
+        if (other.CompareTag("player"))
+        {
+            playerInRange = true;
 
-        playerInRange = true;
+            alertPanel.gameObject.SetActive(true);
+        }
 
         // auto interaction
         if (interactionType == InteractionType.Auto)
@@ -60,10 +69,12 @@ public class NPC : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("player"))
-            return;
+        if (other.CompareTag("player"))
+        {
+            playerInRange = false;
 
-        playerInRange = false;
+            alertPanel.gameObject.SetActive(false);
+        }
     }
 
     void StartNPCDialogue()

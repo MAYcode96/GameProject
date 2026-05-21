@@ -174,7 +174,6 @@ public class DialogueManager : MonoBehaviour
             backgroundImage.sprite = line.background;
         }
 
-        // paksa update canvas
         Canvas.ForceUpdateCanvases();
 
         // mulai typing

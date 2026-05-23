@@ -1,44 +1,28 @@
 using UnityEngine;
 using System.Collections;
-
 public class CutsceneTrigger : MonoBehaviour
-{
-    public DialogueSequence dialogueData;
-
+{ 
+    public DialogueSequence dialogueData; 
     [Header("Optional")]
     public string targetScene;
-
-    [Header("Trigger Once")]
+    [Header("Trigger Once")] 
     public bool triggerOnce = true;
-
     private bool hasTriggered;
-
-    IEnumerator Start()
+    IEnumerator Start() 
     {
         // tunggu DialogueManager selesai Awake
         yield return null;
-        
-        TriggerDialogue();
-    }
-
-    public void TriggerDialogue()
-    {
+        TriggerDialogue(); 
+    } 
+    public void TriggerDialogue() {
         if (triggerOnce && hasTriggered)
             return;
-
-        if (DialogueManager.Instance == null)
+        if (DialogueManager.Instance == null) 
         {
             Debug.LogError("DialogueManager tidak ditemukan!");
-            return;
-        }
-
+            return; 
+        } 
         hasTriggered = true;
-
-        DialogueManager.Instance.StartDialogue(
-            dialogueData,
-            targetScene
-        );
-
-       
+        DialogueManager.Instance.StartDialogue( dialogueData, targetScene ); 
     }
 }

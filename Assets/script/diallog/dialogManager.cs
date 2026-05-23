@@ -13,19 +13,22 @@ public class DialogueManager : MonoBehaviour
 
     public TMP_Text speakerText;
     public TMP_Text dialogueText;
+
     public Image pfpImage;
     public Image backgroundImage;
 
     [Header("Typing")]
-    public float typingSpeed;
+    public float typingSpeed = 0.03f;
 
     [Header("Input")]
-    public KeyCode nextKey;
+    public KeyCode nextKey = KeyCode.Space;
 
     private DialogueSequence currentDialogue;
+
     private int currentIndex;
 
     private bool isTyping;
+
     public bool isDialogueOpen;
 
     private bool canPressNext;
@@ -51,9 +54,12 @@ public class DialogueManager : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
 
-        FakeBloomEffect.Instance.FadeIn();
-
         isDialogueOpen = false;
+
+        if (FakeBloomEffect.Instance != null)
+        {
+            FakeBloomEffect.Instance.FadeIn();
+        }
     }
 
     void Update()
@@ -230,16 +236,18 @@ public class DialogueManager : MonoBehaviour
 
         isTyping = false;
 
-        isDialogueOpen = false;
+        dialoguePanel.SetActive(false);
 
-        currentDialogue = null;
+        yield return new WaitForSeconds(0.1f);
+
+        isDialogueOpen = false;
 
         if (currentNPC != null)
         {
             currentNPC.OnDialogueFinished();
         }
 
-        dialoguePanel.SetActive(false);
+        currentDialogue = null;
 
         if (!string.IsNullOrEmpty(targetScene))
         {

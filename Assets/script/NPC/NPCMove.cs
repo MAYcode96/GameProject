@@ -9,6 +9,9 @@ public class NPCMover : MonoBehaviour
     [Header("Move Settings")]
     public float moveSpeed = 2f;
 
+    [Header("Destroy After Move")]
+    public bool destroyWhenArrived;
+
     private bool isMoving;
 
     public void StartMove()
@@ -34,6 +37,11 @@ public class NPCMover : MonoBehaviour
             );
 
             yield return null;
+        }
+
+        if (destroyWhenArrived)
+        {
+            Destroy(gameObject);
         }
 
         isMoving = false;

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63900ac93b90d764abfce22b4b5e61b6, type: 3}
+  m_Name: stage1(tari&bima2)
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: Bima
+    text: aku mau langsung ke kamar deh.
+    pfp: {fileID: -647588791701333756, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: 0}
+  - speaker: Bima
+    text: Capek bener, dari perjalanan jauh.
+    pfp: {fileID: -647588791701333756, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: 0}
+  - speaker: 'Tari '
+    text: Iya nih, aku juga.
+    pfp: {fileID: -647588791701333756, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: 0}
+  - speaker: 'Tari '
+    text: Aku ambil kamar sebelah sana ya guys.
+    pfp: {fileID: -647588791701333756, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: 0}

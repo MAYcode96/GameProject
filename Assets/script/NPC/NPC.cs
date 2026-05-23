@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class NPC : MonoBehaviour
 {
@@ -9,10 +10,14 @@ public class NPC : MonoBehaviour
         PressKey
     }
 
+    [Header("UI")]
     public Image alertPanel;
 
     [Header("Dialogue")]
     public DialogueSequence dialogueData;
+
+    [Header("Next Dialogue")]
+    public NPC nextNPC;
 
     [Header("After Dialogue")]
     public bool moveAfterDialogue;
@@ -82,18 +87,18 @@ public class NPC : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("player"))
-        {
-            playerInRange = false;
+        if (!other.CompareTag("player"))
+            return;
 
-            if (alertPanel != null)
-            {
-                alertPanel.gameObject.SetActive(false);
-            }
+        playerInRange = false;
+
+        if (alertPanel != null)
+        {
+            alertPanel.gameObject.SetActive(false);
         }
     }
 
-    void StartNPCDialogue()
+    public void StartNPCDialogue()
     {
         if (oneTimeOnly && hasTriggered)
             return;
@@ -119,6 +124,11 @@ public class NPC : MonoBehaviour
         );
     }
 
+    public void StartForcedDialogue()
+    {
+        StartNPCDialogue();
+    }
+
     public void OnDialogueFinished()
     {
         if (moveAfterDialogue)
@@ -130,5 +140,17 @@ public class NPC : MonoBehaviour
                 mover.StartMove();
             }
         }
+
+        if (nextNPC != null)
+        {
+            StartCoroutine(StartNextNPCDialogue());
+        }
+    }
+
+    IEnumerator StartNextNPCDialogue()
+    {
+        yield return new WaitForSeconds(0.7f);
+
+        nextNPC.StartForcedDialogue();
     }
 }

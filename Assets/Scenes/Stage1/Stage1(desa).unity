@@ -1973,6 +1973,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -165
       objectReference: {fileID: 0}
+    - target: {fileID: 4525423597903583647, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d9514f465b496e4fb84c53ce23d19db, type: 2}
+    - target: {fileID: 4525423597903583647, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 5634095787741534347, guid: 0d9514f465b496e4fb84c53ce23d19db, type: 2}
+    - target: {fileID: 4525423597903583647, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5205540991009656996, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2065,12 +2077,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7043858995628273735, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7749181388033639872, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
       propertyPath: m_Name
       value: panelDialogue
       objectReference: {fileID: 0}
     - target: {fileID: 7749181388033639872, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018441951234165507, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018441951234165507, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f82cbe5b3b38c34e856e259fdfdc584, type: 2}
+    - target: {fileID: 8018441951234165507, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018441951234165507, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6317030908023117997, guid: 3f82cbe5b3b38c34e856e259fdfdc584, type: 2}
+    - target: {fileID: 8018441951234165507, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
+      propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2344,7 +2380,7 @@ Transform:
   m_GameObject: {fileID: 896447063}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -168.6, y: -0.8, z: 0.19147962}
+  m_LocalPosition: {x: -168.6, y: 0.61, z: 0.19147962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3368,7 +3404,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: W
+  m_text: E
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3789,7 +3825,7 @@ MonoBehaviour:
   pfpImage: {fileID: 819236547}
   backgroundImage: {fileID: 0}
   typingSpeed: 0.03
-  nextKey: 101
+  nextKey: 32
   isDialogueOpen: 0
 --- !u!1 &1453238152
 GameObject:
@@ -4202,10 +4238,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alertPanel: {fileID: 294567199}
   dialogueData: {fileID: 11400000, guid: dc3da92653eed30489714b53a9a32497, type: 2}
-  moveAfterDialogue: 0
+  moveAfterDialogue: 1
   targetScene: 
   interactionType: 1
-  interactKey: 32
+  interactKey: 101
   oneTimeOnly: 1
 --- !u!114 &1500292252
 MonoBehaviour:
@@ -4220,7 +4256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPoint: {fileID: 896447065}
-  moveSpeed: 2
+  moveSpeed: 8
 --- !u!1 &1563952477
 GameObject:
   m_ObjectHideFlags: 0
@@ -4644,8 +4680,8 @@ MonoBehaviour:
   moveAfterDialogue: 1
   targetScene: 
   interactionType: 1
-  interactKey: 32
-  oneTimeOnly: 1
+  interactKey: 101
+  oneTimeOnly: 0
 --- !u!1 &1784993345
 GameObject:
   m_ObjectHideFlags: 0

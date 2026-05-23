@@ -32,22 +32,23 @@ public class NPC : MonoBehaviour
     private bool playerInRange;
     private bool hasTriggered;
 
-      void Start()
+    void Start()
     {
-        alertPanel.gameObject.SetActive(false);
+        if (alertPanel != null)
+        {
+            alertPanel.gameObject.SetActive(false);
+        }
     }
+
     void Update()
     {
-        // mode tombol
         if (interactionType != InteractionType.PressKey)
             return;
 
-        // dialog sedang terbuka
         if (DialogueManager.Instance != null &&
             DialogueManager.Instance.isDialogueOpen)
             return;
 
-        // tekan tombol
         if (playerInRange && Input.GetKeyDown(interactKey))
         {
             StartNPCDialogue();
@@ -61,7 +62,6 @@ public class NPC : MonoBehaviour
 
         playerInRange = true;
 
-        // AUTO
         if (interactionType == InteractionType.Auto)
         {
             if (alertPanel != null)
@@ -70,10 +70,10 @@ public class NPC : MonoBehaviour
             }
 
             StartNPCDialogue();
+
             return;
         }
 
-        // PRESS KEY
         if (alertPanel != null)
         {
             alertPanel.gameObject.SetActive(true);
@@ -86,24 +86,24 @@ public class NPC : MonoBehaviour
         {
             playerInRange = false;
 
-            alertPanel.gameObject.SetActive(false);
+            if (alertPanel != null)
+            {
+                alertPanel.gameObject.SetActive(false);
+            }
         }
     }
 
     void StartNPCDialogue()
     {
-        // one time only
         if (oneTimeOnly && hasTriggered)
             return;
 
-        // manager tidak ada
         if (DialogueManager.Instance == null)
         {
             Debug.LogError("DialogueManager tidak ditemukan!");
             return;
         }
 
-        // dialog kosong
         if (dialogueData == null)
         {
             Debug.LogError("Dialogue Data kosong!");
@@ -114,7 +114,8 @@ public class NPC : MonoBehaviour
 
         DialogueManager.Instance.StartDialogue(
             dialogueData,
-            targetScene
+            targetScene,
+            this
         );
     }
 

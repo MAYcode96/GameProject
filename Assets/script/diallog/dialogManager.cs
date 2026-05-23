@@ -13,15 +13,14 @@ public class DialogueManager : MonoBehaviour
 
     public TMP_Text speakerText;
     public TMP_Text dialogueText;
-
     public Image pfpImage;
     public Image backgroundImage;
 
     [Header("Typing")]
-    public float typingSpeed = 0.03f;
+    public float typingSpeed;
 
     [Header("Input")]
-    public KeyCode nextKey = KeyCode.E;
+    public KeyCode nextKey;
 
     private DialogueSequence currentDialogue;
     private int currentIndex;
@@ -34,6 +33,8 @@ public class DialogueManager : MonoBehaviour
     private Coroutine typingCoroutine;
 
     private string targetScene;
+
+    private NPC currentNPC;
 
     void Awake()
     {
@@ -49,7 +50,9 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialoguePanel.SetActive(false);
+
         FakeBloomEffect.Instance.FadeIn();
+
         isDialogueOpen = false;
     }
 
@@ -77,58 +80,55 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(DialogueSequence dialogueData, string nextScene = "")
+    public void StartDialogue(
+        DialogueSequence dialogueData,
+        string nextScene = "",
+        NPC npc = null
+    )
     {
-        // cegah spam
         if (isDialogueOpen)
             return;
 
-        // data dialog
         currentDialogue = dialogueData;
 
         currentIndex = 0;
 
         targetScene = nextScene;
 
+        currentNPC = npc;
+
         isDialogueOpen = true;
 
         canPressNext = false;
 
-        // reset ui
         speakerText.text = "";
         dialogueText.text = "";
 
-        // reset gambar
         if (pfpImage != null)
         {
             pfpImage.sprite = null;
             pfpImage.gameObject.SetActive(false);
         }
 
-        // aktifkan panel
         dialoguePanel.SetActive(true);
 
-        // paksa unity render panel dulu
         Canvas.ForceUpdateCanvases();
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(
             dialoguePanel.GetComponent<RectTransform>()
         );
 
-        // mulai routine
         StartCoroutine(StartDialogueRoutine());
     }
 
     IEnumerator StartDialogueRoutine()
     {
-        // tunggu 1 frame penuh
         yield return new WaitForEndOfFrame();
 
         Canvas.ForceUpdateCanvases();
 
-        // tampilkan dialog pertama
         ShowDialogue();
 
-        // delay input
         yield return new WaitForSeconds(0.15f);
 
         canPressNext = true;
@@ -145,19 +145,15 @@ public class DialogueManager : MonoBehaviour
         DialogueSequence.DialogueLine line =
             currentDialogue.lines[currentIndex];
 
-        // stop typing lama
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
         }
 
-        // speaker
         speakerText.text = line.speaker;
 
-        // kosongkan text dulu
         dialogueText.text = "";
 
-        // profile picture
         if (line.pfp != null)
         {
             pfpImage.sprite = line.pfp;
@@ -168,7 +164,6 @@ public class DialogueManager : MonoBehaviour
             pfpImage.gameObject.SetActive(false);
         }
 
-        // background
         if (line.background != null)
         {
             backgroundImage.sprite = line.background;
@@ -176,7 +171,6 @@ public class DialogueManager : MonoBehaviour
 
         Canvas.ForceUpdateCanvases();
 
-        // mulai typing
         typingCoroutine = StartCoroutine(TypeText(line.text));
     }
 
@@ -229,7 +223,6 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator EndDialogueRoutine()
     {
-        // stop typing
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
@@ -241,19 +234,23 @@ public class DialogueManager : MonoBehaviour
 
         currentDialogue = null;
 
+        if (currentNPC != null)
+        {
+            currentNPC.OnDialogueFinished();
+        }
+
         dialoguePanel.SetActive(false);
-        // pindah scene
+
         if (!string.IsNullOrEmpty(targetScene))
         {
-            // fade out dulu
             if (FakeBloomEffect.Instance != null)
             {
                 FakeBloomEffect.Instance.FadeOut(2f);
 
                 yield return new WaitForSeconds(2f);
             }
-            SceneManager.LoadScene(targetScene);
 
+            SceneManager.LoadScene(targetScene);
         }
     }
 }

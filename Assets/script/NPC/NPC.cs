@@ -108,6 +108,9 @@ public class NPC : MonoBehaviour
         if (dialogueData == null)
             return;
 
+        if (oneTimeOnly && hasTriggered)
+            return;
+
         if (DialogueManager.Instance.gameObject == null)
             return;
 

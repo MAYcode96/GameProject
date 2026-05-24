@@ -18,19 +18,34 @@ public class CameraController : MonoBehaviour
     {
         cam = GetComponent<Camera>();
 
-        // Cek apakah target sudah diisi di Inspector
+        // Cari target secara otomatis jika di awal game masih kosong
         if (target == null)
         {
-            Debug.LogError("Waduh! Target di CameraController belum diisi. Tarik objek Player ke kolom Target!");
+            FindPlayerTarget();
         }
     }
 
     void LateUpdate()
     {
-        // Jika target ada, langsung jalankan follow (tanpa perlu trigger lagi)
-        if (target != null)
+        // Jika karena suatu hal target hilang atau belum ketemu (misal saat transisi spawn), 
+        // kamera akan terus mencoba mencari sampai ketemu
+        if (target == null)
         {
-            HandleFollow();
+            FindPlayerTarget();
+            return;
+        }
+
+        HandleFollow();
+    }
+
+    void FindPlayerTarget()
+    {
+        // Mencari objek di scene yang memiliki tag "player"
+        GameObject playerObj = GameObject.FindGameObjectWithTag("player");
+        if (playerObj != null)
+        {
+            target = playerObj.transform;
+            Debug.Log("CameraController: Target Player berhasil ditemukan otomatis!");
         }
     }
 
@@ -48,7 +63,7 @@ public class CameraController : MonoBehaviour
         float camHeight = cam.orthographicSize;
         float camWidth = camHeight * cam.aspect;
 
-        // CLAMPING
+        // CLAMPING (Agar kamera tidak keluar dari batas map yang kamu tentukan)
         float clampedX = Mathf.Clamp(smoothPos.x, minBounds.x + camWidth, maxBounds.x - camWidth);
         float clampedY = Mathf.Clamp(smoothPos.y, minBounds.y + camHeight, maxBounds.y - camHeight);
 

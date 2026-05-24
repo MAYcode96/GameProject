@@ -442,6 +442,7 @@ Transform:
   m_Children:
   - {fileID: 1549221857}
   - {fileID: 430338911}
+  - {fileID: 1626482510}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &430338910
@@ -1403,6 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ba716ecf8d0fa448aeb6e47be10522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcID: 
   alertPanel: {fileID: 890733482}
   dialogueData: {fileID: 11400000, guid: 8ffcc658bfd184140a0741373a64c17d, type: 2}
   nextNPC: {fileID: 0}
@@ -1411,6 +1413,9 @@ MonoBehaviour:
   interactionType: 0
   interactKey: 101
   oneTimeOnly: 1
+  saveAfterDialogue: 1
+  markNpcMet: 1
+  markNpcGone: 1
 --- !u!1 &1120192491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1788,54 @@ Transform:
   - {fileID: 1058066552}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1626482509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1626482510}
+  - component: {fileID: 1626482511}
+  m_Layer: 0
+  m_Name: saveSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1626482510
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626482509}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 399550899}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1626482511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626482509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2822fb6f5b88a4caea2f76afbc6fc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    lastScene: 
+    npcMet: []
+    npcGone: []
 --- !u!114 &2020265947 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8018441951234165507, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}

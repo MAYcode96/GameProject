@@ -125,6 +125,12 @@ public class DialogueManager : MonoBehaviour
         );
 
         StartCoroutine(StartDialogueRoutine());
+
+        if (dialoguePanel == null)
+        {
+            Debug.LogWarning("DialoguePanel sudah tidak ada (scene mungkin berubah)");
+            return;
+        }
     }
 
     IEnumerator StartDialogueRoutine()

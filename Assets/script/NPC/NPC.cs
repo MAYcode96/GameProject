@@ -10,6 +10,9 @@ public class NPC : MonoBehaviour
         PressKey
     }
 
+    [Header("NPC ID")]
+    public string npcID;
+
     [Header("UI")]
     public Image alertPanel;
 
@@ -22,7 +25,7 @@ public class NPC : MonoBehaviour
     [Header("After Dialogue")]
     public bool moveAfterDialogue;
 
-    [Header("Optional")]
+    [Header("Optional Scene")]
     public string targetScene;
 
     [Header("Interaction Type")]
@@ -37,12 +40,18 @@ public class NPC : MonoBehaviour
     private bool playerInRange;
     private bool hasTriggered;
 
+    // =========================
+    // SAVE SYSTEM OPTIONS
+    // =========================
+    [Header("Save System")]
+    public bool saveAfterDialogue = false;
+    public bool markNpcMet = true;
+    public bool markNpcGone = false;
+
     void Start()
     {
         if (alertPanel != null)
-        {
             alertPanel.gameObject.SetActive(false);
-        }
     }
 
     void Update()
@@ -70,19 +79,14 @@ public class NPC : MonoBehaviour
         if (interactionType == InteractionType.Auto)
         {
             if (alertPanel != null)
-            {
                 alertPanel.gameObject.SetActive(false);
-            }
 
             StartNPCDialogue();
-
             return;
         }
 
         if (alertPanel != null)
-        {
             alertPanel.gameObject.SetActive(true);
-        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -93,27 +97,19 @@ public class NPC : MonoBehaviour
         playerInRange = false;
 
         if (alertPanel != null)
-        {
             alertPanel.gameObject.SetActive(false);
-        }
     }
 
     public void StartNPCDialogue()
     {
-        if (oneTimeOnly && hasTriggered)
-            return;
-
         if (DialogueManager.Instance == null)
-        {
-            Debug.LogError("DialogueManager tidak ditemukan!");
             return;
-        }
 
         if (dialogueData == null)
-        {
-            Debug.LogError("Dialogue Data kosong!");
             return;
-        }
+
+        if (DialogueManager.Instance.gameObject == null)
+            return;
 
         hasTriggered = true;
 
@@ -131,19 +127,41 @@ public class NPC : MonoBehaviour
 
     public void OnDialogueFinished()
     {
+        // =========================
+        // MOVE AFTER DIALOGUE
+        // =========================
         if (moveAfterDialogue)
         {
             NPCMover mover = GetComponent<NPCMover>();
 
             if (mover != null)
-            {
                 mover.StartMove();
-            }
         }
 
+        // =========================
+        // NEXT NPC DIALOGUE
+        // =========================
         if (nextNPC != null)
         {
             StartCoroutine(StartNextNPCDialogue());
+        }
+
+        // =========================
+        // SAVE SYSTEM LOGIC
+        // =========================
+        if (GameManager.Instance != null)
+        {
+            if (string.IsNullOrEmpty(npcID))
+                npcID = gameObject.name;
+
+            if (markNpcMet)
+                GameManager.Instance.SetNpcMet(npcID);
+
+            if (markNpcGone)
+                GameManager.Instance.SetNpcGone(npcID);
+
+            if (saveAfterDialogue)
+                GameManager.Instance.SaveGame();
         }
     }
 
@@ -151,6 +169,7 @@ public class NPC : MonoBehaviour
     {
         yield return new WaitForSeconds(0.7f);
 
-        nextNPC.StartForcedDialogue();
+        if (nextNPC != null)
+            nextNPC.StartForcedDialogue();
     }
 }

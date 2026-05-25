@@ -5,16 +5,32 @@ using System.Collections;
 
 public class SceneTrigger : MonoBehaviour
 {
+    [Header("Scene")]
     public string sceneName;
+
+    [Header("UI")]
     public Image alertPanel;
 
     private bool playerInRange;
     private bool isLoading;
 
+    // Ambil script UnlockObject
+    private UnlockObject unlockObject;
+
     void Start()
     {
-        alertPanel.gameObject.SetActive(false);
 
+
+        // Ambil component UnlockObject di object ini
+        unlockObject = GetComponent<UnlockObject>();
+
+        // Matikan panel alert di awal
+        if (alertPanel != null)
+        {
+            alertPanel.gameObject.SetActive(false);
+        }
+
+        // Fade in scene
         if (FakeBloomEffect.Instance != null)
         {
             FakeBloomEffect.Instance.FadeIn();
@@ -33,13 +49,30 @@ public class SceneTrigger : MonoBehaviour
     {
         isLoading = true;
 
-        float duration = FakeBloomEffect.Instance.fadeOutDuration;
+        // Unlock object & paksa GameManager nulis ke JSON disk
+        if (unlockObject != null)
+        {
+            unlockObject.Unlock();
+            Debug.Log("Portal berhasil di-unlock.");
+        }
 
-        FakeBloomEffect.Instance.FadeOut();
+        // Ambil durasi fade
+        float duration = 0f;
+        if (FakeBloomEffect.Instance != null)
+        {
+            duration = FakeBloomEffect.Instance.fadeOutDuration;
+            FakeBloomEffect.Instance.FadeOut();
+        }
 
+        // Tunggu fade selesai (memberikan waktu yang sangat cukup bagi SaveSystem untuk menulis file)
         yield return new WaitForSeconds(duration);
 
-        SceneManager.LoadScene(sceneName);
+        // Gunakan Async agar perpindahan scene lebih aman dan tidak memutus proses I/O secara kasar
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

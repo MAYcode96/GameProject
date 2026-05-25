@@ -7,10 +7,13 @@ public class UnlockObject : MonoBehaviour
 
     public void Unlock()
     {
-        if (GameManager.Instance == null) return;
-        if (string.IsNullOrEmpty(objectID)) objectID = gameObject.name;
+        Debug.Log("UNLOCK DIPANGGIL");
 
-        // Tinggal panggil fungsi tiruan yang ada di GameManager
+        if (GameManager.Instance == null) return;
+
+        if (string.IsNullOrEmpty(objectID))
+            objectID = gameObject.name;
+
         GameManager.Instance.SetObjectUnlocked(objectID, saveAfterUnlock);
     }
 }

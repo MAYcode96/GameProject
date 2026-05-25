@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,23 +22,35 @@ public class GameManager : MonoBehaviour
         LoadGame();
     }
 
-    private void Update()
+    private void Start()
     {
-        // Fitur Tes Manual menggunakan tombol S
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            GameObject player = GameObject.FindGameObjectWithTag("player");
-            if (player != null)
-            {
-                SavePlayerPosition(player.transform, true);
-                Debug.Log("<color=green>Sistem: Manual Save via tombol S SUKSES!</color>");
-            }
-            else
-            {
-                Debug.LogWarning("Sistem: Gagal manual save. Player dengan tag 'player' tidak ada di scene.");
-            }
-        }
+        StartCoroutine(ApplyAfterSceneReady());
     }
+
+    private IEnumerator ApplyAfterSceneReady()
+    {
+        yield return null;
+        ApplyObjectStates();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ApplyObjectStates();
+    }
+
+    // =========================
+    // SAVE / LOAD
+    // =========================
 
     public void NewGame()
     {
@@ -58,59 +70,100 @@ public class GameManager : MonoBehaviour
         if (data == null) data = new GameData();
     }
 
-    // Fungsi utama penerima instruksi dari AutoSavePlayer maupun interaksi dunia
+    // =========================
+    // OBJECT SYSTEM (FIXED LOGIC)
+    // =========================
+
+    public bool IsObjectUnlocked(string id)
+    {
+        return data != null && data.objectUnlocked.Contains(id);
+    }
+    public void SetObjectUnlocked(string id, bool shouldSave)
+    {
+        if (data == null) data = new GameData();
+
+        if (!data.objectUnlocked.Contains(id))
+        {
+            data.objectUnlocked.Add(id);
+            Debug.Log("[GameManager] ID BERHASIL DISIMPAN: " + id);
+
+            LockCurrentPlayerState();
+
+            if (shouldSave)
+                SaveGame();
+
+            ApplyObjectStates();
+        }
+    }
+
+    //findChecker
+    public void ApplyObjectStates()
+    {
+        if (data == null) return;
+
+        ObjectUnlockChecker[] checkers =
+            Object.FindObjectsByType<ObjectUnlockChecker>(FindObjectsSortMode.None);
+
+        foreach (ObjectUnlockChecker checker in checkers)
+        {
+            if (checker != null)
+                checker.EvaluateState();
+        }
+
+        Debug.Log("[GameManager] SEMUA STATUS CHECKER TELAH DIPERBARUI");
+    }
+    // =========================
+    // PLAYER SAVE
+    // =========================
+
     public void SavePlayerPosition(Transform playerTransform, bool forceWriteToDisk)
     {
         if (playerTransform == null) return;
         if (data == null) data = new GameData();
 
         string currentScene = SceneManager.GetActiveScene().name;
-        if (currentScene == "MainMenu") return; // Ganti jika nama scene menu utama berbeda
+        if (currentScene == "MainMenu") return;
 
         data.lastScene = currentScene;
 
-        // VALIDASI KRUSIAL: Cari apakah data scene ini sudah pernah terdaftar di list
         ScenePosition existing = data.scenePositions.Find(s => s.sceneName == currentScene);
 
         if (existing != null)
         {
-            // Update data yang sudah ada, JANGAN pakai .Add() lagi agar tidak menumpuk
             existing.x = playerTransform.position.x;
             existing.y = playerTransform.position.y;
             existing.z = playerTransform.position.z;
         }
         else
         {
-            // Jika scene benar-benar baru dikunjungi, buat record baru
-            ScenePosition newPos = new ScenePosition(currentScene, playerTransform.position);
-            data.scenePositions.Add(newPos);
+            data.scenePositions.Add(
+                new ScenePosition(currentScene, playerTransform.position)
+            );
         }
 
-        // Tulis ke storage fisik (JSON) hanya jika diminta (misal interval disk tercapai / pencet S)
         if (forceWriteToDisk)
-        {
             SaveGame();
-        }
     }
 
-    public void ContinueGame()
+    private void LockCurrentPlayerState()
     {
-        StartCoroutine(LoadLastScene());
+        GameObject player = GameObject.FindGameObjectWithTag("player");
+
+        if (player != null)
+            SavePlayerPosition(player.transform, true);
+        else
+            SaveGame();
     }
 
-    private IEnumerator LoadLastScene()
-    {
-        if (data == null || string.IsNullOrEmpty(data.lastScene))
-            yield break;
+    // =========================
+    // NPC SYSTEM (TETAP)
+    // =========================
 
-        yield return SceneManager.LoadSceneAsync(data.lastScene);
-    }
+    public bool IsNpcGone(string id)
+        => data != null && data.npcGone.Contains(id);
 
-    // ==========================================
-    // NPC SYSTEM (Otomatis mengunci posisi Player)
-    // ==========================================
-    public bool IsNpcGone(string id) => data != null && data.npcGone.Contains(id);
-    public bool IsNpcMet(string id) => data != null && data.npcMet.Contains(id);
+    public bool IsNpcMet(string id)
+        => data != null && data.npcMet.Contains(id);
 
     public void SetNpcMet(string id)
     {
@@ -128,37 +181,23 @@ public class GameManager : MonoBehaviour
         LockCurrentPlayerState();
     }
 
-    // ==========================================
-    // OBJECT UNLOCK SYSTEM (TIRUAN DARI NPC SYSTEM)
-    // ==========================================
-    public bool IsObjectUnlocked(string id) => data != null && data.objectUnlocked.Contains(id);
+    // =========================
+    // SCENE CONTINUE
+    // =========================
 
-    public void SetObjectUnlocked(string id, bool shouldSave)
+    public void ContinueGame()
     {
-        if (data == null) data = new GameData();
-
-        if (!data.objectUnlocked.Contains(id))
-        {
-            data.objectUnlocked.Add(id);
-
-            // Otomatis amankan posisi player saat berinteraksi dengan objek krusial
-            if (shouldSave)
-            {
-                LockCurrentPlayerState();
-            }
-        }
+        StartCoroutine(LoadLastScene());
     }
 
-    private void LockCurrentPlayerState()
+    private IEnumerator LoadLastScene()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("player");
-        if (player != null)
-        {
-            SavePlayerPosition(player.transform, true);
-        }
-        else
-        {
-            SaveGame();
-        }
+        if (data == null || string.IsNullOrEmpty(data.lastScene))
+            yield break;
+
+        yield return SceneManager.LoadSceneAsync(data.lastScene);
+        yield return null;
+
+        ApplyObjectStates();
     }
 }

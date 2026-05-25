@@ -1,38 +1,42 @@
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class ObjectUnlockChecker : MonoBehaviour
 {
-    [Header("Object ID")]
     public string objectID;
-
-    [Header("Target Object to Activate")]
     public GameObject targetObject;
 
-    void Start()
+    IEnumerator Start()
     {
-        // Pengaman: Jika targetObject tidak diisi, gunakan objek ini sendiri
-        if (targetObject == null)
+        // Tunggu sampai GameManager dan datanya benar-benar siap
+        while (GameManager.Instance == null || GameManager.Instance.data == null)
         {
-            targetObject = this.gameObject;
+            yield return null;
         }
 
-        // Validasi ID Otomatis: Harus sama polanya dengan UnlockObject
         if (string.IsNullOrEmpty(objectID))
         {
             objectID = gameObject.name;
         }
 
-        // Matikan objek terlebih dahulu secara default
-        targetObject.SetActive(false);
-
-        // Cek ke data GameManager apakah ID ini sudah pernah di-unlock
-        if (GameManager.Instance != null && GameManager.Instance.data != null)
+        if (targetObject == null)
         {
-            if (GameManager.Instance.data.objectUnlocked.Contains(objectID))
-            {
-                targetObject.SetActive(true);
-                Debug.Log($"[UnlockChecker] {objectID} aktif karena sudah di-unlock sebelumnya.");
-            }
+            targetObject = this.gameObject;
         }
+
+        EvaluateState();
+    }
+
+    public void EvaluateState()
+    {
+        if (GameManager.Instance == null || targetObject == null) return;
+
+        // Cek ID 
+        bool unlocked = GameManager.Instance.IsObjectUnlocked(objectID);
+        targetObject.SetActive(unlocked);
+
+        Debug.Log(unlocked
+            ? $"[Checker] {objectID} ADA di save -> Objek AKTIF"
+            : $"[Checker] {objectID} TIDAK ADA di save -> Objek NON-AKTIF");
     }
 }

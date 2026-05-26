@@ -182,8 +182,8 @@ GameObject:
   - component: {fileID: 70134880}
   - component: {fileID: 70134879}
   - component: {fileID: 70134881}
-  - component: {fileID: 70134882}
   - component: {fileID: 70134883}
+  - component: {fileID: 70134885}
   m_Layer: 0
   m_Name: toDapur
   m_TagString: Untagged
@@ -266,19 +266,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: stage1(dapur)
   alertPanel: {fileID: 558456406}
---- !u!114 &70134882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 70134877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb42d2eae0017274dbf25a4cc71dcd93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcID: pakedi2
 --- !u!114 &70134883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,7 +278,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb42d2eae0017274dbf25a4cc71dcd93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcID: bima&tari
+  npcIDs:
+  - bima&tari
+  - pakedi2
+--- !u!114 &70134885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70134877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc152828660d3447b378b1d72e40073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectIDs:
+  - toKamar1
+  - toDesa1
+  saveAfterUnlock: 1
 --- !u!1 &114847657
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ba716ecf8d0fa448aeb6e47be10522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcID: bima&tari
+  npcID: bima&tari2
   alertPanel: {fileID: 1057125511}
   dialogueData: {fileID: 0}
   nextNPC: {fileID: 0}
@@ -464,7 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7bd2bc5ee16ac41ba5669b8fd5809e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcID: bima&tari
+  npcID: bima&tari2
 --- !u!1001 &216339822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1044,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ba716ecf8d0fa448aeb6e47be10522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcID: bima&tari
+  npcID: bima&tari2
   alertPanel: {fileID: 1057125511}
   dialogueData: {fileID: 11400000, guid: 0e4fe0bf3a14f2d4e801d5f2882cfa12, type: 2}
   nextNPC: {fileID: 0}
@@ -1169,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7bd2bc5ee16ac41ba5669b8fd5809e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcID: bima&tari
+  npcID: bima&tari2
 --- !u!1 &362932728
 GameObject:
   m_ObjectHideFlags: 0
@@ -2320,6 +2325,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1501445076}
+  - component: {fileID: 1501445078}
+  - component: {fileID: 1501445077}
   m_Layer: 0
   m_Name: gate
   m_TagString: Untagged
@@ -2345,6 +2352,34 @@ Transform:
   - {fileID: 1054297192}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1501445077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501445075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499a150b430794c4d8390f04df436eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: toDesa1
+  targetObject: {fileID: 1054297189}
+--- !u!114 &1501445078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501445075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499a150b430794c4d8390f04df436eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: toKamar1
+  targetObject: {fileID: 1088907249}
 --- !u!1 &1810651693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2394,6 +2429,7 @@ MonoBehaviour:
     scenePositions: []
     npcMet: []
     npcGone: []
+    objectUnlocked: []
 --- !u!1 &1989531799
 GameObject:
   m_ObjectHideFlags: 0

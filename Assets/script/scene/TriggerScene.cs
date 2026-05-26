@@ -14,15 +14,19 @@ public class SceneTrigger : MonoBehaviour
     private bool playerInRange;
     private bool isLoading;
 
-    // Ambil script UnlockObject
+    // Unlock Object
     private UnlockObject unlockObject;
+
+    // NPC Gone
+    private SetNPCGone npcGone;
 
     void Start()
     {
-
-
-        // Ambil component UnlockObject di object ini
+        // Ambil component UnlockObject
         unlockObject = GetComponent<UnlockObject>();
+
+        // Ambil component SetNPCGone
+        npcGone = GetComponent<SetNPCGone>();
 
         // Matikan panel alert di awal
         if (alertPanel != null)
@@ -49,26 +53,35 @@ public class SceneTrigger : MonoBehaviour
     {
         isLoading = true;
 
-        // Unlock object & paksa GameManager nulis ke JSON disk
+        // Unlock object
         if (unlockObject != null)
         {
             unlockObject.Unlock();
             Debug.Log("Portal berhasil di-unlock.");
         }
 
-        // Ambil durasi fade
+        // Hilangkan NPC
+        if (npcGone != null)
+        {
+            npcGone.RemoveNPC();
+            Debug.Log("NPC berhasil dihapus.");
+        }
+
+        // Fade Out
         float duration = 0f;
+
         if (FakeBloomEffect.Instance != null)
         {
             duration = FakeBloomEffect.Instance.fadeOutDuration;
             FakeBloomEffect.Instance.FadeOut();
         }
 
-        // Tunggu fade selesai (memberikan waktu yang sangat cukup bagi SaveSystem untuk menulis file)
+        // Tunggu fade selesai
         yield return new WaitForSeconds(duration);
 
-        // Gunakan Async agar perpindahan scene lebih aman dan tidak memutus proses I/O secara kasar
+        // Load scene async
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
         while (!asyncLoad.isDone)
         {
             yield return null;

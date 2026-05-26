@@ -2,18 +2,24 @@ using UnityEngine;
 
 public class UnlockObject : MonoBehaviour
 {
-    public string objectID;
+    [Header("Semua ID yang mau di-unlock")]
+    public string[] objectIDs;
+
     public bool saveAfterUnlock = true;
 
     public void Unlock()
     {
-        Debug.Log("UNLOCK DIPANGGIL");
+        Debug.Log("MULTI UNLOCK DIPANGGIL");
 
         if (GameManager.Instance == null) return;
 
-        if (string.IsNullOrEmpty(objectID))
-            objectID = gameObject.name;
+        foreach (string id in objectIDs)
+        {
+            if (string.IsNullOrEmpty(id)) continue;
 
-        GameManager.Instance.SetObjectUnlocked(objectID, saveAfterUnlock);
+            GameManager.Instance.SetObjectUnlocked(id, saveAfterUnlock);
+
+            Debug.Log("Unlocked ID: " + id);
+        }
     }
 }

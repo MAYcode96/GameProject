@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class SetNPCGone : MonoBehaviour
 {
-    public string npcID;
+    [Header("Semua NPC yang mau dihilangkan")]
+    public string[] npcIDs;
 
-    // Panggil fungsi ini saat dialog selesai, quest beres, atau saat NPC harus pergi
+    // Panggil saat dialog selesai / quest selesai
     public void RemoveNPC()
     {
-        if (GameManager.Instance != null)
+        if (GameManager.Instance == null) return;
+
+        foreach (string id in npcIDs)
         {
-            // GameManager akan otomatis mengurus pengecekan data, penguncian posisi player, dan autosave
-            GameManager.Instance.SetNpcGone(npcID);
+            if (string.IsNullOrEmpty(id)) continue;
+
+            GameManager.Instance.SetNpcGone(id);
+
+            Debug.Log("NPC Gone: " + id);
         }
     }
 }

@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueData: {fileID: 11400000, guid: 78c30bb7d8d732447a0f978d8ffed91a, type: 2}
-  targetScene: sceneintro
+  targetScene: stage1(gerbang)
   triggerOnce: 1
 --- !u!1 &402897033
 GameObject:

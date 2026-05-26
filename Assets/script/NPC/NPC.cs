@@ -149,23 +149,7 @@ public class NPC : MonoBehaviour
             StartCoroutine(StartNextNPCDialogue());
         }
 
-        // =========================
-        // SAVE SYSTEM LOGIC
-        // =========================
-        if (GameManager.Instance != null)
-        {
-            if (string.IsNullOrEmpty(npcID))
-                npcID = gameObject.name;
-
-            if (markNpcMet)
-                GameManager.Instance.SetNpcMet(npcID);
-
-            if (markNpcGone)
-                GameManager.Instance.SetNpcGone(npcID);
-
-            if (saveAfterDialogue)
-                GameManager.Instance.SaveGame();
-        }
+        
     }
 
     IEnumerator StartNextNPCDialogue()

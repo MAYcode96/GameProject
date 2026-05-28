@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     }
 
     // =========================
-    // OBJECT SYSTEM (FIXED LOGIC)
+    // OBJECT SYSTEM
     // =========================
 
     public bool IsObjectUnlocked(string id)
@@ -199,5 +199,110 @@ public class GameManager : MonoBehaviour
         yield return null;
 
         ApplyObjectStates();
+    }
+
+    // =========================
+    // NPC POSITION SAVE
+    // =========================
+
+    public void SaveNPCPosition(string npcID, Transform npcTransform)
+    {
+        if (npcTransform == null) return;
+        if (data == null) data = new GameData();
+
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        NPCSaveData existing =
+            data.npcPositions.Find(n =>
+                n.npcID == npcID &&
+                n.sceneName == currentScene
+            );
+
+        if (existing != null)
+        {
+            existing.x = npcTransform.position.x;
+            existing.y = npcTransform.position.y;
+            existing.z = npcTransform.position.z;
+        }
+        else
+        {
+            data.npcPositions.Add(
+                new NPCSaveData(
+                    npcID,
+                    currentScene,
+                    npcTransform.position
+                )
+            );
+        }
+
+        SaveGame();
+    }
+
+    public bool HasNPCPosition(string npcID)
+    {
+        if (data == null) return false;
+
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        return data.npcPositions.Exists(n =>
+            n.npcID == npcID &&
+            n.sceneName == currentScene
+        );
+    }
+
+    public Vector3 GetNPCPosition(string npcID)
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        NPCSaveData npc =
+            data.npcPositions.Find(n =>
+                n.npcID == npcID &&
+                n.sceneName == currentScene
+            );
+
+        if (npc != null)
+        {
+            return npc.GetPosition();
+        }
+
+        return Vector3.zero;
+    }
+
+    // =========================
+    // NPC DIALOGUE STATE
+    // =========================
+
+    public int GetNPCDialogueState(string npcID)
+    {
+        if (data == null) return 0;
+
+        NPCDialogueState state =
+            data.npcDialogueStates.Find(n => n.npcID == npcID);
+
+        if (state != null)
+            return state.dialogueIndex;
+
+        return 0;
+    }
+
+    public void SetNPCDialogueState(string npcID, int index)
+    {
+        if (data == null) data = new GameData();
+
+        NPCDialogueState state =
+            data.npcDialogueStates.Find(n => n.npcID == npcID);
+
+        if (state != null)
+        {
+            state.dialogueIndex = index;
+        }
+        else
+        {
+            data.npcDialogueStates.Add(
+                new NPCDialogueState(npcID, index)
+            );
+        }
+
+        SaveGame();
     }
 }

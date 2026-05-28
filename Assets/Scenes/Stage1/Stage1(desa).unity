@@ -264,9 +264,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1028998055488522691, guid: e27eaca5339f7a8468853cc092354b0f, type: 3}
+    - {fileID: 8264906926846192630, guid: e27eaca5339f7a8468853cc092354b0f, type: 3}
+    - {fileID: 3174329150849100877, guid: e27eaca5339f7a8468853cc092354b0f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3705815788420406860, guid: e27eaca5339f7a8468853cc092354b0f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 674648133}
   m_SourcePrefab: {fileID: 100100000, guid: e27eaca5339f7a8468853cc092354b0f, type: 3}
 --- !u!1 &128006273
 GameObject:
@@ -752,7 +757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499a150b430794c4d8390f04df436eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectID: penjagawarung1
+  objectID: penjagaWarung1
   targetObject: {fileID: 994771136}
 --- !u!4 &353355486 stripped
 Transform:
@@ -1264,6 +1269,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &479968420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 479968421}
+  - component: {fileID: 479968422}
+  m_Layer: 0
+  m_Name: spawnBima
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &479968421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479968420}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 51.958866, y: 2.2769787, z: 0.1600124}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1818719192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &479968422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479968420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285d1ca3d02650a46929ce3186f56e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &506781343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1888,6 +1937,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &674648126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3705815788420406860, guid: e27eaca5339f7a8468853cc092354b0f, type: 3}
+  m_PrefabInstance: {fileID: 92204175}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &674648133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674648126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7bd2bc5ee16ac41ba5669b8fd5809e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcID: Bima&Tari2
 --- !u!1 &727995044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,6 +2396,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &838732650
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 838732651}
+  - component: {fileID: 838732652}
+  m_Layer: 0
+  m_Name: spawnTari
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &838732651
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838732650}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 51.958866, y: 2.2769787, z: 0.1600124}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1818719192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &838732652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838732650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 285d1ca3d02650a46929ce3186f56e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &855195216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2627,7 +2738,7 @@ MonoBehaviour:
   npcIDs:
   - pakEdi1
   - Asep1
-  - bima&tari2
+  - Bima&Tari2
 --- !u!114 &896447068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3384,6 +3495,8 @@ MonoBehaviour:
   data:
     lastScene: 
     scenePositions: []
+    npcPositions: []
+    npcDialogueStates: []
     npcMet: []
     npcGone: []
     objectUnlocked: []
@@ -4657,7 +4770,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1725780415}
-  - component: {fileID: 1725780414}
   - component: {fileID: 1725780413}
   m_Layer: 0
   m_Name: to gerbang
@@ -4712,18 +4824,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1725780414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725780412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8006a91e55d1a444b9593ad873ce2a3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1725780415
 Transform:
   m_ObjectHideFlags: 0
@@ -4838,7 +4938,6 @@ GameObject:
   - component: {fileID: 1778559997}
   - component: {fileID: 1778559996}
   - component: {fileID: 1778559999}
-  - component: {fileID: 1778560000}
   m_Layer: 8
   m_Name: asep
   m_TagString: NPC
@@ -4986,19 +5085,6 @@ MonoBehaviour:
   saveAfterDialogue: 0
   markNpcMet: 1
   markNpcGone: 0
---- !u!114 &1778560000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1778559995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7bd2bc5ee16ac41ba5669b8fd5809e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcID: Asep1
 --- !u!1 &1784993345
 GameObject:
   m_ObjectHideFlags: 0
@@ -5118,6 +5204,8 @@ Transform:
   - {fileID: 1435165184}
   - {fileID: 1202183982}
   - {fileID: 1898401128}
+  - {fileID: 479968421}
+  - {fileID: 838732651}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1827953083
@@ -5885,9 +5973,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2937538963586922103, guid: 20f7711c2bca65844b967ba899267437, type: 3}
+    - {fileID: 671054980762867250, guid: 20f7711c2bca65844b967ba899267437, type: 3}
+    - {fileID: 7252443379837705766, guid: 20f7711c2bca65844b967ba899267437, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3912767956954786176, guid: 20f7711c2bca65844b967ba899267437, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2066699126}
   m_SourcePrefab: {fileID: 100100000, guid: 20f7711c2bca65844b967ba899267437, type: 3}
 --- !u!1 &2031063437
 GameObject:
@@ -5967,6 +6060,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 14.466798}
   m_EdgeRadius: 0
+--- !u!1 &2066699119 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3912767956954786176, guid: 20f7711c2bca65844b967ba899267437, type: 3}
+  m_PrefabInstance: {fileID: 2025135207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2066699126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066699119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7bd2bc5ee16ac41ba5669b8fd5809e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcID: Bima&Tari2
 --- !u!1 &2070806565
 GameObject:
   m_ObjectHideFlags: 0

@@ -149,7 +149,7 @@ public class NPC : MonoBehaviour
             StartCoroutine(StartNextNPCDialogue());
         }
 
-        
+
     }
 
     IEnumerator StartNextNPCDialogue()

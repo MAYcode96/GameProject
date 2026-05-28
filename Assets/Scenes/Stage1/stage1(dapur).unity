@@ -1176,7 +1176,7 @@ GameObject:
   - component: {fileID: 1005327570}
   - component: {fileID: 1005327569}
   m_Layer: 5
-  m_Name: Image
+  m_Name: tinggalkan Tempat ini
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1845,8 +1845,11 @@ MonoBehaviour:
   data:
     lastScene: 
     scenePositions: []
+    npcPositions: []
+    npcDialogueStates: []
     npcMet: []
     npcGone: []
+    objectUnlocked: []
 --- !u!114 &2020265947 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8018441951234165507, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
@@ -1870,7 +1873,6 @@ GameObject:
   - component: {fileID: 2144413442}
   - component: {fileID: 2144413444}
   - component: {fileID: 2144413446}
-  - component: {fileID: 2144413445}
   m_Layer: 0
   m_Name: to vila
   m_TagString: Untagged
@@ -1954,19 +1956,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &2144413445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2144413441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb42d2eae0017274dbf25a4cc71dcd93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcID: ToWc
 --- !u!114 &2144413446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1979,7 +1968,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb42d2eae0017274dbf25a4cc71dcd93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcID: hin1
+  npcIDs:
+  - ToWc
+  - hint1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class PlayerSpawnManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
     }
 
@@ -23,25 +24,38 @@ public class PlayerSpawnManager : MonoBehaviour
 
     public void SpawnPlayer()
     {
-        if (playerPrefab == null) return;
+        if (playerPrefab == null)
+        {
+            Debug.LogError("Player Prefab belum diisi!");
+            return;
+        }
+
+        if (GameManager.Instance == null)
+        {
+            Debug.LogError("GameManager tidak ditemukan!");
+            return;
+        }
+
+        if (GameManager.Instance.data == null)
+        {
+            Debug.LogError("GameData belum ada!");
+            return;
+        }
 
         var data = GameManager.Instance.data;
-        if (data == null) return;
 
         string currentScene = SceneManager.GetActiveScene().name;
 
-        // Cari data posisi spesifik untuk scene ini
         ScenePosition pos = data.scenePositions.Find(s => s.sceneName == currentScene);
+
         Vector3 spawnPosition;
 
         if (pos != null)
         {
-            // Pakai koordinat simpanan jika ada
             spawnPosition = new Vector3(pos.x, pos.y, pos.z);
         }
         else
         {
-            // Pakai koordinat default tempat PlayerSpawnManager ditaruh di Unity Editor
             spawnPosition = transform.position;
         }
 

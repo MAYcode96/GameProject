@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2207453210427451225}
   - component: {fileID: 54612619930088018}
-  - component: {fileID: 9121763155355753446}
   - component: {fileID: 2937538963586922103}
   - component: {fileID: 6970513292912242162}
   - component: {fileID: 2270341891949991525}
   - component: {fileID: 361468274223927189}
+  - component: {fileID: 671054980762867250}
+  - component: {fileID: 7252443379837705766}
   m_Layer: 8
   m_Name: bima
   m_TagString: NPC
@@ -92,19 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &9121763155355753446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3912767956954786176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7bd2bc5ee16ac41ba5669b8fd5809e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcID: bima&tari1
 --- !u!114 &2937538963586922103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,3 +201,32 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &671054980762867250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3912767956954786176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1906571356011164d8ec4994be61e587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcID: Bima
+--- !u!114 &7252443379837705766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3912767956954786176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b0fb84712c04445a9c06ab604c73ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcID: 
+  introDialogue: {fileID: 0}
+  afterQuestDialogue: {fileID: 0}
+  endingDialogue: {fileID: 0}

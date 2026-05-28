@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6671482198879613643}
   - component: {fileID: 2531697552993695956}
-  - component: {fileID: 4494650230833791103}
   - component: {fileID: 1028998055488522691}
   - component: {fileID: 3174329150849100877}
   - component: {fileID: 8003184740017021486}
   - component: {fileID: 836641590098061677}
   - component: {fileID: 709918675093187457}
+  - component: {fileID: 8264906926846192630}
   m_Layer: 7
   m_Name: tari
   m_TagString: NPC
@@ -93,19 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4494650230833791103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3705815788420406860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a7bd2bc5ee16ac41ba5669b8fd5809e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcID: bima&tari1
 --- !u!114 &1028998055488522691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,3 +216,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.12, y: 11.2}
   m_EdgeRadius: 0
+--- !u!114 &8264906926846192630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705815788420406860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1906571356011164d8ec4994be61e587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcID: Tari

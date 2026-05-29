@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcIDs:
-  - bima&tari
+  - bima&tari2
   - pakedi2
 --- !u!114 &70134885
 MonoBehaviour:
@@ -296,7 +296,6 @@ MonoBehaviour:
   objectIDs:
   - toKamar1
   - cutSceneunlock2
-  - toDesa1
   saveAfterUnlock: 1
 --- !u!1 &114847657
 GameObject:
@@ -858,6 +857,7 @@ GameObject:
   - component: {fileID: 349367106}
   - component: {fileID: 349367108}
   - component: {fileID: 349367109}
+  - component: {fileID: 349367110}
   m_Layer: 8
   m_Name: pakEdi
   m_TagString: NPC
@@ -909,7 +909,7 @@ SpriteRenderer:
   m_SortingLayerID: -1534818743
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8793639957104055765, guid: d8554d9dbff96bc49bb6fc7634b49d0f, type: 3}
+  m_Sprite: {fileID: 2830770023077910892, guid: 1d7dda940af07194aad56a21c11b3a49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -930,7 +930,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.24, y: 4.7, z: 0.11762333}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1321121557}
@@ -997,7 +997,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.18, y: 4.61}
+    oldSize: {x: 4.28, y: 11.32}
     newSize: {x: 2.18, y: 4.61}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1020,6 +1020,9 @@ MonoBehaviour:
   targetPoint: {fileID: 1996401127}
   moveSpeed: 4
   destroyWhenArrived: 1
+  animator: {fileID: 349367110}
+  walkParameter: isWalking
+  spriteRenderer: {fileID: 349367104}
 --- !u!114 &349367109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,6 +1036,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcID: pakedi2
+--- !u!95 &349367110
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 349367103}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c73f613330235b54bb27b4074efc1a91, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &359419327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,7 +1622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a7bd2bc5ee16ac41ba5669b8fd5809e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcID: bima&tari3
+  npcID: bima&tarigone3
 --- !u!114 &579614107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1610,7 +1635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ba716ecf8d0fa448aeb6e47be10522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcID: bima&tari3
+  npcID: bima&tarigone3
   alertPanel: {fileID: 1057125511}
   dialogueData: {fileID: 11400000, guid: 1182a83e186405f4ca11f66d5859f65d, type: 2}
   nextNPC: {fileID: 0}
@@ -2172,6 +2197,7 @@ GameObject:
   - component: {fileID: 1054297192}
   - component: {fileID: 1054297191}
   - component: {fileID: 1054297193}
+  - component: {fileID: 1054297194}
   m_Layer: 0
   m_Name: toDesa
   m_TagString: Untagged
@@ -2254,6 +2280,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: stage1(desa)
   alertPanel: {fileID: 558456406}
+--- !u!114 &1054297194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054297189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb42d2eae0017274dbf25a4cc71dcd93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcIDs:
+  - bima&tarigone3
 --- !u!114 &1057125511 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1557130268604981985, guid: c6c282b620802f04dbff21400ad5cc56, type: 3}
@@ -2282,6 +2322,7 @@ GameObject:
   - component: {fileID: 1088907251}
   - component: {fileID: 1088907253}
   - component: {fileID: 1088907255}
+  - component: {fileID: 1088907256}
   m_Layer: 0
   m_Name: toKamar
   m_TagString: Untagged
@@ -2378,6 +2419,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: stage1(kamar)
   alertPanel: {fileID: 558456406}
+--- !u!114 &1088907256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088907249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc152828660d3447b378b1d72e40073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectIDs:
+  - toDesa1
+  - bima&tari3
+  saveAfterUnlock: 1
 --- !u!114 &1097997565 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4525423597903583647, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
@@ -2485,6 +2542,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1321121557}
+  - component: {fileID: 1321121558}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -2512,6 +2570,21 @@ Transform:
   - {fileID: 579614105}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1321121558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321121556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499a150b430794c4d8390f04df436eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: bima&tari3
+  npcGoneID: bima&tarigone3
+  targetObject: {fileID: 579614104}
 --- !u!1 &1419909552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,6 +2822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: toDesa1
+  npcGoneID: 
   targetObject: {fileID: 1054297189}
 --- !u!114 &1501445078
 MonoBehaviour:
@@ -2763,6 +2837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: toKamar1
+  npcGoneID: 
   targetObject: {fileID: 1088907249}
 --- !u!1 &1810651693
 GameObject:
@@ -3224,6 +3299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: cutSceneunlock2
+  npcGoneID: 
   targetObject: {fileID: 343377914}
 --- !u!4 &2059081888
 Transform:

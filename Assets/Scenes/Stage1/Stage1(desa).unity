@@ -758,6 +758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: penjagaWarung1
+  npcGoneID: 
   targetObject: {fileID: 994771136}
 --- !u!4 &353355486 stripped
 Transform:
@@ -775,7 +776,6 @@ GameObject:
   - component: {fileID: 353844873}
   - component: {fileID: 353844875}
   - component: {fileID: 353844874}
-  - component: {fileID: 353844876}
   m_Layer: 0
   m_Name: to sungai
   m_TagString: Untagged
@@ -858,20 +858,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: stage1(sungai)
   alertPanel: {fileID: 727995046}
---- !u!114 &353844876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 353844872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 499a150b430794c4d8390f04df436eda, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectID: 
-  targetObject: {fileID: 0}
 --- !u!1 &407308245
 GameObject:
   m_ObjectHideFlags: 0
@@ -3357,7 +3343,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 499a150b430794c4d8390f04df436eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectID: toSungai
+  objectID: toSungai1
+  npcGoneID: 
   targetObject: {fileID: 353844872}
 --- !u!114 &1089420686
 MonoBehaviour:
@@ -3372,6 +3359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: toGerbang1
+  npcGoneID: 
   targetObject: {fileID: 1725780412}
 --- !u!1 &1175534491
 GameObject:
@@ -4499,6 +4487,7 @@ GameObject:
   - component: {fileID: 1500292251}
   - component: {fileID: 1500292252}
   - component: {fileID: 1500292253}
+  - component: {fileID: 1500292254}
   m_Layer: 8
   m_Name: PakEdi
   m_TagString: NPC
@@ -4550,7 +4539,7 @@ SpriteRenderer:
   m_SortingLayerID: -1534818743
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8793639957104055765, guid: d8554d9dbff96bc49bb6fc7634b49d0f, type: 3}
+  m_Sprite: {fileID: 2830770023077910892, guid: 1d7dda940af07194aad56a21c11b3a49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4571,7 +4560,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.005813252, w: 0.99998313}
   m_LocalPosition: {x: -155.2, y: 0.09, z: 0.3644177}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 0.4121328}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.4121328}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 324868834}
@@ -4610,17 +4599,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 2.608164, y: 0.0036354065}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.18, y: 4.61}
+    oldSize: {x: 4.28, y: 11.32}
     newSize: {x: 2.18, y: 4.61}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.18, y: 4.61}
+  m_Size: {x: 7.3963294, y: 10.863775}
   m_EdgeRadius: 0
 --- !u!114 &1500292251
 MonoBehaviour:
@@ -4661,6 +4650,9 @@ MonoBehaviour:
   targetPoint: {fileID: 896447065}
   moveSpeed: 8
   destroyWhenArrived: 1
+  animator: {fileID: 1500292254}
+  walkParameter: isWalking
+  spriteRenderer: {fileID: 1500292248}
 --- !u!114 &1500292253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4674,6 +4666,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcID: pakEdi1
+--- !u!95 &1500292254
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500292247}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c73f613330235b54bb27b4074efc1a91, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1563952477
 GameObject:
   m_ObjectHideFlags: 0
@@ -4771,6 +4785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1725780415}
   - component: {fileID: 1725780413}
+  - component: {fileID: 1725780416}
   m_Layer: 0
   m_Name: to gerbang
   m_TagString: Untagged
@@ -4839,6 +4854,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1089420684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1725780416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725780412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad774887e3b73e4a91cead13bb8c819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: stage1(desa)
+  alertPanel: {fileID: 727995046}
 --- !u!1 &1736174396
 GameObject:
   m_ObjectHideFlags: 0
@@ -5408,7 +5437,7 @@ Transform:
   m_GameObject: {fileID: 1898401127}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 41.2, y: -1.9, z: 0}
+  m_LocalPosition: {x: 33.59, y: -1.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

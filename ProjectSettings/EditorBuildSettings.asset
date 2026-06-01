@@ -30,6 +30,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage1/stage1(kamar).unity
     guid: ef3cbb2ed2cf7114eafd113cc3453e53
   - enabled: 1
+    path: Assets/Scenes/Stage1/cutScene/cutScene1,5.unity
+    guid: c01f8a36e70df624aae25ac75fba12a4
+  - enabled: 1
+    path: Assets/Scenes/Stage1/cutScene/cutScene2.unity
+    guid: 1c7468566824ecc4596102370900624a
+  - enabled: 1
+    path: Assets/Scenes/Stage1/cutScene/cutScene3.unity
+    guid: 436cfe1ac2761544daedee63aae71b79
+  - enabled: 1
     path: Assets/Scenes/stage3/bossfight.unity
     guid: 9f14c0ea731edf548948699fbbacbe1c
   m_configObjects:

@@ -8,7 +8,7 @@ public class ObjectUnlockChecker : MonoBehaviour
     [Header("Optional NPC Gone ID")]
     public string npcGoneID;
 
-    public GameObject targetObject;
+    public GameObject[] targetObjects;
 
     IEnumerator Start()
     {
@@ -22,17 +22,12 @@ public class ObjectUnlockChecker : MonoBehaviour
             objectID = gameObject.name;
         }
 
-        if (targetObject == null)
-        {
-            targetObject = this.gameObject;
-        }
-
         EvaluateState();
     }
 
     public void EvaluateState()
     {
-        if (GameManager.Instance == null || targetObject == null) return;
+        if (GameManager.Instance == null) return;
 
         bool unlocked =
             GameManager.Instance.IsObjectUnlocked(objectID);
@@ -45,14 +40,22 @@ public class ObjectUnlockChecker : MonoBehaviour
         // kalau NPC gone -> paksa hilang
         if (npcGone)
         {
-            targetObject.SetActive(false);
+            foreach (GameObject obj in targetObjects)
+            {
+                if (obj != null)
+                    obj.SetActive(false);
+            }
 
             Debug.Log($"[Checker] NPC GONE: {npcGoneID}");
             return;
         }
 
         // kalau belum gone -> cek unlock
-        targetObject.SetActive(unlocked);
+        foreach (GameObject obj in targetObjects)
+        {
+            if (obj != null)
+                obj.SetActive(unlocked);
+        }
 
         Debug.Log(unlocked
             ? $"[Checker] {objectID} AKTIF"

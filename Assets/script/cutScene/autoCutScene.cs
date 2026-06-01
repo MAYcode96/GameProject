@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections;
 
 public class AutoCutsceneImage : MonoBehaviour
@@ -23,15 +21,17 @@ public class AutoCutsceneImage : MonoBehaviour
     [Header("Alert UI")]
     public GameObject pressKeyUI;
 
-    [Header("Cutscene Image")]
-    public Image cutsceneImage;
-
-    public Sprite cutsceneSprite;
+    [Header("Cutscene Pages")]
+    public CanvasGroup[] cutscenePages;
 
     [Header("Fade Settings")]
     public float fadeDuration = 1f;
 
+    [Header("Show Duration")]
     public float showDuration = 3f;
+
+    [Header("Optional Per Page Duration")]
+    public float[] pageDurations;
 
     [Header("Settings")]
     public bool triggerOnce = false;
@@ -40,32 +40,29 @@ public class AutoCutsceneImage : MonoBehaviour
     public GameObject objectToActivate;
 
     private bool playerInRange;
-
     private bool hasTriggered;
-
     private bool isShowing;
-
     private Coroutine fadeCoroutine;
 
     void Start()
     {
-        if (cutsceneImage != null)
+        // Sembunyikan semua halaman cutscene
+        foreach (CanvasGroup page in cutscenePages)
         {
-            Color color = cutsceneImage.color;
-            color.a = 0f;
-            cutsceneImage.color = color;
+            if (page == null)
+                continue;
 
-            cutsceneImage.gameObject.SetActive(false);
+            page.alpha = 0f;
+            page.interactable = false;
+            page.blocksRaycasts = false;
+            page.gameObject.SetActive(false);
         }
 
-        // sembunyikan alert awal
         if (pressKeyUI != null)
         {
             pressKeyUI.SetActive(false);
         }
 
-
-        // object awalnya mati
         if (objectToActivate != null)
         {
             objectToActivate.SetActive(false);
@@ -88,7 +85,6 @@ public class AutoCutsceneImage : MonoBehaviour
             if (isShowing)
                 return;
 
-            // hilangkan alert
             if (pressKeyUI != null)
             {
                 pressKeyUI.SetActive(false);
@@ -102,7 +98,6 @@ public class AutoCutsceneImage : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // cek layer player
         if (((1 << other.gameObject.layer) & playerLayer) == 0)
             return;
 
@@ -122,7 +117,6 @@ public class AutoCutsceneImage : MonoBehaviour
         }
         else
         {
-            // tampilkan alert tombol
             if (pressKeyUI != null)
             {
                 pressKeyUI.SetActive(true);
@@ -132,13 +126,11 @@ public class AutoCutsceneImage : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        // cek layer player
         if (((1 << other.gameObject.layer) & playerLayer) == 0)
             return;
 
         playerInRange = false;
 
-        // sembunyikan alert saat keluar area
         if (pressKeyUI != null)
         {
             pressKeyUI.SetActive(false);
@@ -157,27 +149,38 @@ public class AutoCutsceneImage : MonoBehaviour
 
     IEnumerator CutsceneRoutine()
     {
+        if (cutscenePages == null || cutscenePages.Length == 0)
+            yield break;
+
         isShowing = true;
 
-        cutsceneImage.gameObject.SetActive(true);
-
-        if (cutsceneSprite != null)
+        for (int i = 0; i < cutscenePages.Length; i++)
         {
-            cutsceneImage.sprite = cutsceneSprite;
+            CanvasGroup page = cutscenePages[i];
+
+            if (page == null)
+                continue;
+
+            page.gameObject.SetActive(true);
+            page.alpha = 0f;
+
+            yield return StartCoroutine(FadeCanvasGroup(page, 0f, 1f));
+
+            float duration = showDuration;
+
+            if (pageDurations != null &&
+                i < pageDurations.Length)
+            {
+                duration = pageDurations[i];
+            }
+
+            yield return new WaitForSeconds(duration);
+
+            yield return StartCoroutine(FadeCanvasGroup(page, 1f, 0f));
+
+            page.gameObject.SetActive(false);
         }
 
-        // FADE IN
-        yield return StartCoroutine(FadeImage(0f, 1f));
-
-        // TUNGGU
-        yield return new WaitForSeconds(showDuration);
-
-        // FADE OUT
-        yield return StartCoroutine(FadeImage(1f, 0f));
-
-        cutsceneImage.gameObject.SetActive(false);
-
-        // aktifkan object setelah cutscene
         if (objectToActivate != null)
         {
             objectToActivate.SetActive(true);
@@ -186,31 +189,26 @@ public class AutoCutsceneImage : MonoBehaviour
         isShowing = false;
     }
 
-    IEnumerator FadeImage(float startAlpha, float endAlpha)
+    IEnumerator FadeCanvasGroup(
+        CanvasGroup canvasGroup,
+        float startAlpha,
+        float endAlpha)
     {
         float timer = 0f;
-
-        Color color = cutsceneImage.color;
 
         while (timer < fadeDuration)
         {
             timer += Time.deltaTime;
 
-            float alpha = Mathf.Lerp(
+            canvasGroup.alpha = Mathf.Lerp(
                 startAlpha,
                 endAlpha,
                 timer / fadeDuration
             );
 
-            color.a = alpha;
-
-            cutsceneImage.color = color;
-
             yield return null;
         }
 
-        color.a = endAlpha;
-
-        cutsceneImage.color = color;
+        canvasGroup.alpha = endAlpha;
     }
 }

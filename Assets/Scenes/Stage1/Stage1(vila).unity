@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 70134881}
   - component: {fileID: 70134883}
   - component: {fileID: 70134885}
+  - component: {fileID: 70134886}
   m_Layer: 0
   m_Name: toDapur
   m_TagString: Untagged
@@ -295,8 +296,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectIDs:
   - toKamar1
-  - cutScene2
-  saveAfterUnlock: 1
+  - cutSceneunlock2
+  saveAfterUnlock: 0
+--- !u!114 &70134886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70134877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a7bd2bc5ee16ac41ba5669b8fd5809e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcID: todapur1
 --- !u!1 &114847657
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,6 +484,115 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npcID: bima&tari2
+--- !u!1 &164137522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 164137523}
+  - component: {fileID: 164137526}
+  - component: {fileID: 164137525}
+  - component: {fileID: 164137524}
+  m_Layer: 0
+  m_Name: toDapur (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &164137523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164137522}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8, y: 0.4, z: -0.041716963}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1501445076}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &164137524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164137522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc152828660d3447b378b1d72e40073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectIDs:
+  - cutScene1.6
+  saveAfterUnlock: 1
+--- !u!114 &164137525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164137522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad774887e3b73e4a91cead13bb8c819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: stage1(dapur)
+  alertPanel: {fileID: 558456406}
+--- !u!61 &164137526
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164137522}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &216339822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3296,6 +3419,8 @@ GameObject:
   - component: {fileID: 1501445076}
   - component: {fileID: 1501445078}
   - component: {fileID: 1501445077}
+  - component: {fileID: 1501445079}
+  - component: {fileID: 1501445080}
   m_Layer: 0
   m_Name: gate
   m_TagString: Untagged
@@ -3319,6 +3444,7 @@ Transform:
   - {fileID: 1088907252}
   - {fileID: 820896956}
   - {fileID: 70134880}
+  - {fileID: 164137523}
   - {fileID: 1054297192}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3336,7 +3462,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectID: toDesa1
   npcGoneID: 
-  targetObjects: []
+  targetObjects:
+  - {fileID: 1054297189}
 --- !u!114 &1501445078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3350,8 +3477,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectID: toKamar1
+  npcGoneID: kamar1
+  targetObjects:
+  - {fileID: 1088907249}
+--- !u!114 &1501445079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501445075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499a150b430794c4d8390f04df436eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: todapur2
   npcGoneID: 
-  targetObjects: []
+  targetObjects:
+  - {fileID: 0}
+--- !u!114 &1501445080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501445075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499a150b430794c4d8390f04df436eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: tokamar2
+  npcGoneID: 
+  targetObjects:
+  - {fileID: 820896955}
 --- !u!1 &1810651693
 GameObject:
   m_ObjectHideFlags: 0

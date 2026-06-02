@@ -2398,6 +2398,7 @@ GameObject:
   - component: {fileID: 1295199272}
   - component: {fileID: 1295199274}
   - component: {fileID: 1295199273}
+  - component: {fileID: 1295199275}
   m_Layer: 0
   m_Name: To wc
   m_TagString: Untagged
@@ -2518,6 +2519,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcID: ToWc
   disappearWhenGone: 1
+--- !u!114 &1295199275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295199269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb42d2eae0017274dbf25a4cc71dcd93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcIDs:
+  - hint1
 --- !u!114 &1423519120 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4525423597903583647, guid: 23baa2b67dfd60a498e4dbfe1d70826c, type: 3}
@@ -2722,6 +2737,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1604034168}
+  - component: {fileID: 1604034169}
   m_Layer: 0
   m_Name: cutScene
   m_TagString: Untagged
@@ -2748,6 +2764,22 @@ Transform:
   - {fileID: 468088857}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1604034169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604034167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499a150b430794c4d8390f04df436eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectID: tosecretroom1
+  npcGoneID: tosecretroom1
+  targetObjects:
+  - {fileID: 468088856}
 --- !u!1 &1626482509
 GameObject:
   m_ObjectHideFlags: 0

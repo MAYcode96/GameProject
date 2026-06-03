@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectIDs:
-  - 
+  - todapur2
   - toGerbang1
   - toSungai1
   - asep2
@@ -275,6 +275,7 @@ MonoBehaviour:
   npcIDs:
   - penjagaWarung2
   - toVilla5
+  - todapur1
 --- !u!61 &40390348
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -17,6 +17,10 @@ public class MusicManager : MonoBehaviour
             Instance = this;
             audioSource = GetComponent<AudioSource>();
             DontDestroyOnLoad(gameObject);
+
+            // Memuat volume yang tersimpan saat game baru dimulai
+            float savedVolume = PlayerPrefs.GetFloat("BGMVolume", 1f);
+            audioSource.volume = savedVolume;
         }
         else
         {
@@ -24,20 +28,33 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
+        // Ambil data volume yang tersimpan
+        float savedVolume = PlayerPrefs.GetFloat("BGMVolume", 1f);
+
+        // Jika ada slider yang terpasang di scene awal, atur posisinya
+        if (musicSlider != null)
+        {
+            musicSlider.value = savedVolume;
+            musicSlider.onValueChanged.AddListener(delegate { SetVolume(musicSlider.value); });
+        }
+
         if(backgroundMusic != null)
         {
             PlayBackgroundMusic(false, backgroundMusic);
         }
-
-        musicSlider.onValueChanged.AddListener(delegate { SetVolume(musicSlider.value); });
     }
 
     public static void SetVolume(float volume)
     {
-        Instance.audioSource.volume = volume;
+        if (Instance != null && Instance.audioSource != null)
+        {
+            Instance.audioSource.volume = volume;
+        }
+        // Menyimpan nilai volume ke memori local
+        PlayerPrefs.SetFloat("BGMVolume", volume);
+        PlayerPrefs.Save();
     }
 
     public void PlayBackgroundMusic(bool resetSong, AudioClip audioClip = null)
@@ -61,4 +78,15 @@ public class MusicManager : MonoBehaviour
         audioSource.Pause();
     }
 
+    public static void ChangeBGM(AudioClip laguBaru, bool resetLagu = true)
+    {
+        if (Instance != null)
+        {
+            // Tips pro: Jika lagu yang mau diputar sudah sama dan sedang berbunyi, 
+            // abaikan saja agar musik tidak terpotong atau mengulang dari awal secara aneh.
+            if (Instance.audioSource.clip == laguBaru && Instance.audioSource.isPlaying) return;
+
+            Instance.PlayBackgroundMusic(resetLagu, laguBaru);
+        }
+    }
 }

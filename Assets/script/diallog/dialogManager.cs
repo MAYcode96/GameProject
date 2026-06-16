@@ -24,12 +24,19 @@ public class DialogueManager : MonoBehaviour
     public KeyCode nextKey = KeyCode.Space;
 
     private DialogueSequence currentDialogue;
+
     private int currentIndex;
+
     private bool isTyping;
+
     public bool isDialogueOpen;
+
     private bool canPressNext;
+
     private Coroutine typingCoroutine;
+
     private string targetScene;
+
     private NPC currentNPC;
 
     void Awake()
@@ -46,6 +53,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         dialoguePanel.SetActive(false);
+
         isDialogueOpen = false;
 
         if (FakeBloomEffect.Instance != null)
@@ -88,10 +96,15 @@ public class DialogueManager : MonoBehaviour
             return;
 
         currentDialogue = dialogueData;
+
         currentIndex = 0;
+
         targetScene = nextScene;
+
         currentNPC = npc;
+
         isDialogueOpen = true;
+
         canPressNext = false;
 
         speakerText.text = "";
@@ -150,6 +163,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         speakerText.text = line.speaker;
+
         dialogueText.text = "";
 
         if (line.pfp != null)
@@ -175,11 +189,13 @@ public class DialogueManager : MonoBehaviour
     IEnumerator TypeText(string text)
     {
         isTyping = true;
+
         dialogueText.text = "";
 
         foreach (char letter in text)
         {
             dialogueText.text += letter;
+
             yield return new WaitForSeconds(typingSpeed);
         }
 
@@ -225,6 +241,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         isTyping = false;
+
         dialoguePanel.SetActive(false);
 
         yield return new WaitForSeconds(0.1f);
@@ -243,6 +260,7 @@ public class DialogueManager : MonoBehaviour
             if (FakeBloomEffect.Instance != null)
             {
                 FakeBloomEffect.Instance.FadeOut(2f);
+
                 yield return new WaitForSeconds(2f);
             }
 

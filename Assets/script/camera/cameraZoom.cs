@@ -26,17 +26,23 @@ public class CameraController : MonoBehaviour
     }
 
     void LateUpdate()
-    {
-        // Jika karena suatu hal target hilang atau belum ketemu (misal saat transisi spawn), 
+{
+    // Jika karena suatu hal target hilang atau belum ketemu (misal saat transisi spawn), 
         // kamera akan terus mencoba mencari sampai ketemu
-        if (target == null)
-        {
-            FindPlayerTarget();
-            return;
-        }
-
-        HandleFollow();
+    if (Time.timeScale == 0f)
+    {
+        velocity = Vector3.zero;
+        return;
     }
+
+    if (target == null)
+    {
+        FindPlayerTarget();
+        return;
+    }
+
+    HandleFollow();
+}
 
     void FindPlayerTarget()
     {

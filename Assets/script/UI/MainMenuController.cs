@@ -20,7 +20,11 @@ public class MainMenuController : MonoBehaviour
 
     public void NewGameDialogYes()
     {
-        PlayClickSound(); // Memanggil suara klik
+        PlayClickSound();
+        
+        // Hapus file lama agar data benar-benar baru
+        System.IO.File.Delete(Application.persistentDataPath + "/save.json");
+        
         SceneManager.LoadScene("cutScene1");
     }
 
@@ -38,14 +42,23 @@ public class MainMenuController : MonoBehaviour
 
     public void LoadGameDialogYes()
     {
-        PlayClickSound(); // Memanggil suara klik
-        if(PlayerPrefs.HasKey("SavedLevel1"))
+        PlayClickSound();
+        
+        string path = Application.persistentDataPath + "/save.json";
+        
+        if (System.IO.File.Exists(path))
         {
-            levelToLoad = PlayerPrefs.GetString("SavedLevel1");
-            SceneManager.LoadScene(levelToLoad);
+            // Ada file save, lanjut ke scene terakhir
+            // Kita perlu memuat data dulu agar GameManager tahu harus ke scene mana
+            GameData loadedData = SaveSystem.Load(); 
+            if (loadedData != null)
+            {
+                SceneManager.LoadScene(loadedData.lastScene);
+            }
         }
         else
         {
+            // Tidak ada file save
             noSavedGameDialog.SetActive(true);
         }
     }

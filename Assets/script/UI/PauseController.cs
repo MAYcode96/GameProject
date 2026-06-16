@@ -8,6 +8,7 @@ public class PauseController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            SoundEffectManager.Play("Click");
             container.SetActive(true);
             Time.timeScale = 0;
         }

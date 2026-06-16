@@ -2,6 +2,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+public class InventorySaveData
+{
+    public int itemID;
+    public int slotIndex;
+
+    public InventorySaveData() {} 
+
+    public InventorySaveData(int id, int index)
+    {
+        itemID = id;
+        slotIndex = index;
+    }
+}
+
+[System.Serializable]
 public class ScenePosition
 {
     public string sceneName;
@@ -66,13 +81,8 @@ public class GameData
     public List<NPCDialogueState> npcDialogueStates = new List<NPCDialogueState>();
     public List<string> npcMet = new List<string>();
     public List<string> npcGone = new List<string>();
-
-    // TAMBAHKAN INI: Untuk menyimpan ID objek yang sudah di-unlock
     public List<string> objectUnlocked = new List<string>();
-<<<<<<< Updated upstream
-=======
     public List<InventorySaveData> inventorySaveData = new List<InventorySaveData>();
 // TAMBAHKAN BARIS INI: List untuk menyimpan ID unik barang di world yang sudah diambil
     public List<string> collectedItems = new List<string>();
->>>>>>> Stashed changes
 }

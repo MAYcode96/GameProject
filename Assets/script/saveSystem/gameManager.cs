@@ -61,6 +61,14 @@ public class GameManager : MonoBehaviour
     public void SaveGame()
     {
         if (data == null) data = new GameData();
+
+        // (AMBIL DATA INVENTORY)
+        InventoryController inventoryController = FindFirstObjectByType<InventoryController>(FindObjectsInactive.Include);;
+        if (inventoryController != null)
+        {
+            data.inventorySaveData = inventoryController.GetInventoryItems();
+        }
+
         SaveSystem.Save(data);
     }
 
@@ -68,6 +76,13 @@ public class GameManager : MonoBehaviour
     {
         data = SaveSystem.Load();
         if (data == null) data = new GameData();
+
+        // (PASANG DATA INVENTORY)
+        InventoryController inventoryController = FindFirstObjectByType<InventoryController>(FindObjectsInactive.Include);
+        if (inventoryController != null && data.inventorySaveData != null)
+        {
+            inventoryController.SetInventoryItems(data.inventorySaveData);
+        }
     }
 
     // =========================
@@ -110,12 +125,23 @@ public class GameManager : MonoBehaviour
                 checker.EvaluateState();
         }
 
+        // Cari InventoryController di scene yang baru saja terbuka
+        InventoryController inventoryController = FindFirstObjectByType<InventoryController>(FindObjectsInactive.Include);
+        
+        // Jika UI Inventory ada di scene ini, masukkan data item yang tersimpan
+        if (inventoryController != null && data.inventorySaveData != null)
+        {
+            inventoryController.SetInventoryItems(data.inventorySaveData);
+            Debug.Log("[GameManager] INVENTORY BERHASIL DI-LOAD");
+        }
+        // -------------------------------
+
         Debug.Log("[GameManager] SEMUA STATUS CHECKER TELAH DIPERBARUI");
     }
+
     // =========================
     // PLAYER SAVE
     // =========================
-
     public void SavePlayerPosition(Transform playerTransform, bool forceWriteToDisk)
     {
         if (playerTransform == null) return;

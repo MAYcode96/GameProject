@@ -19,6 +19,10 @@ public class SoundEffectManager : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
             soundEffectLibrary = GetComponent<SoundEffectLibrary>();
             DontDestroyOnLoad(gameObject);
+
+            // Memuat volume yang tersimpan saat game baru dimulai
+            float savedVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+            audioSource.volume = savedVolume;
         }
         else
         {
@@ -28,6 +32,8 @@ public class SoundEffectManager : MonoBehaviour
 
     public static void Play(string soundName)
     {
+        if (soundEffectLibrary == null) return;
+        
         AudioClip audioClip = soundEffectLibrary.GetRandomClip(soundName);
         if(audioClip != null)
         {
@@ -35,25 +41,40 @@ public class SoundEffectManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        sfxSlider.onValueChanged.AddListener(delegate {OnValueChanged(); });
+        // Ambil data volume yang tersimpan
+        float savedVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+
+        // Jika ada slider yang terpasang di scene awal, atur posisinya
+        if (sfxSlider != null)
+        {
+            sfxSlider.value = savedVolume;
+            sfxSlider.onValueChanged.AddListener(delegate { OnValueChanged(); });
+        }
     }
 
     public static void SetVolume(float volume)
     {
-        audioSource.volume = volume;
+        if (audioSource != null)
+        {
+            audioSource.volume = volume;
+        }
+        // Menyimpan nilai volume ke memori local
+        PlayerPrefs.SetFloat("SFXVolume", volume);
+        PlayerPrefs.Save();
     }
 
     public void OnValueChanged()
     {
-        SetVolume(sfxSlider.value);
+        if (sfxSlider != null)
+        {
+            SetVolume(sfxSlider.value);
+        }
     }
 
     public void PlayClickSound()
     {
         SoundEffectManager.Play("Click");
     }
-    
 }

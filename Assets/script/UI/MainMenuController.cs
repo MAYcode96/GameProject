@@ -24,6 +24,18 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("cutScene1");
     }
 
+    public void PlayInformation()
+    {
+        PlayClickSound();
+        SceneManager.LoadScene("MainMenuInfo");
+    }
+
+    public void QuitInformation()
+    {
+        PlayClickSound();
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void LoadGameDialogYes()
     {
         PlayClickSound(); // Memanggil suara klik

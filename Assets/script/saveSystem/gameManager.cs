@@ -305,4 +305,41 @@ public class GameManager : MonoBehaviour
 
         SaveGame();
     }
+
+    // =========================
+    // AUTO SAVE
+    // =========================
+    private void OnApplicationQuit()
+    {
+        Debug.Log("[GameManager] Menyimpan data sebelum keluar game...");
+        SaveGame();
+    }
+
+    // Fungsi untuk mengecek apakah item sudah pernah diambil sebelumnya
+    public bool IsItemCollected(string uniqueID)
+    {
+        if (data != null && data.collectedItems != null)
+        {
+            return data.collectedItems.Contains(uniqueID);
+        }
+        return false;
+    }
+
+    // Fungsi untuk mencatat item yang baru saja diambil
+    public void MarkItemAsCollected(string uniqueID)
+    {
+        if (data != null)
+        {
+            if (data.collectedItems == null)
+            {
+                data.collectedItems = new List<string>();
+            }
+
+            // Jika belum ada di catatan, masukkan ke catatan
+            if (!data.collectedItems.Contains(uniqueID))
+            {
+                data.collectedItems.Add(uniqueID);
+            }
+        }
+    }
 }

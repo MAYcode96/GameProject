@@ -69,4 +69,10 @@ public class GameData
 
     // TAMBAHKAN INI: Untuk menyimpan ID objek yang sudah di-unlock
     public List<string> objectUnlocked = new List<string>();
+<<<<<<< Updated upstream
+=======
+    public List<InventorySaveData> inventorySaveData = new List<InventorySaveData>();
+// TAMBAHKAN BARIS INI: List untuk menyimpan ID unik barang di world yang sudah diambil
+    public List<string> collectedItems = new List<string>();
+>>>>>>> Stashed changes
 }

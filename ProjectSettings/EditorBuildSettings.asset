@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage1/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+<<<<<<< Updated upstream
+=======
+    path: Assets/Scenes/MainMenu.unity
+    guid: 187561be3de3040419bc4e24863c15d6
+  - enabled: 1
+    path: Assets/Scenes/MainMenuInfo.unity
+    guid: 8b1b2fb4e38feed46956e95895c7c2af
+  - enabled: 1
+>>>>>>> Stashed changes
     path: Assets/Scenes/Stage1/cutScene/cutScene1.unity
     guid: 4d7a27ad513ddbe4ab287915bc796ae2
   - enabled: 1

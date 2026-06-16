@@ -92,13 +92,17 @@ PrefabInstance:
       propertyPath: m_text
       value: E
       objectReference: {fileID: 0}
+    - target: {fileID: 8208307846782595409, guid: c6c282b620802f04dbff21400ad5cc56, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9181079910221176101, guid: c6c282b620802f04dbff21400ad5cc56, type: 3}
       propertyPath: m_Name
       value: alertE Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9181079910221176101, guid: c6c282b620802f04dbff21400ad5cc56, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags:
+  - tile
+  - NPC
+  - player
+  - Item
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - player
+  - npc
+  - triggerNPC
+  - bus
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: bg
+    uniqueID: 2245773897
+    locked: 0
+  - name: asset
+    uniqueID: 302356317
+    locked: 0
+  - name: karalter
+    uniqueID: 2760148553
+    locked: 0
+  - name: bus
+    uniqueID: 3607856655
+    locked: 0
+  - name: UI
+    uniqueID: 4284200463
+    locked: 0
+  - name: layout
+    uniqueID: 4218427975
+    locked: 0
+  m_RenderingLayers:
+  - Default

@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63900ac93b90d764abfce22b4b5e61b6, type: 3}
+  m_Name: cutSceneStart
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: Ryan
+    text: Desa karang Turi...
+    pfp: {fileID: -8503444539322447447, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: 6799216245798168510, guid: 9c671fba460bbea47a2d5e138ebd0e7c, type: 3}
+  - speaker: Ryan
+    text: "Krisis air Bersih\u2026 tapi hasil panen mereka nomor satu di kabupaten
+      ini."
+    pfp: {fileID: 3184939432797331818, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: 6799216245798168510, guid: 9c671fba460bbea47a2d5e138ebd0e7c, type: 3}
+  - speaker: Bima
+    text: Kok bisa sih, tempat kek gitu tuh biasanya nggak normal, Yan.
+    pfp: {fileID: -7002701647214073610, guid: dfc1975b2cf66844398eeeab78053529, type: 3}
+    background: {fileID: 8257921945241284986, guid: db888c91a081ccf4a93006176e280c5e, type: 3}
+  - speaker: Tari
+    text: Justru itu. ini bukan sekadar konten, kita bisa cari tau kok bisa gitu.
+    pfp: {fileID: 8507451965802014258, guid: e4c7652af4c4b8242b68a68b7e735ac6, type: 3}
+    background: {fileID: 8257921945241284986, guid: db888c91a081ccf4a93006176e280c5e, type: 3}
+  - speaker: Ryan
+    text: Ini pasti jadi headline menarik
+    pfp: {fileID: -647588791701333756, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: -4748702184737024587, guid: f39f245b36ce7a641992732b5266bb2a, type: 3}
+  - speaker: Ryan
+    text: ni jadi langkah awal kita.
+    pfp: {fileID: 3184939432797331818, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: -4748702184737024587, guid: f39f245b36ce7a641992732b5266bb2a, type: 3}
+  - speaker: Ryan
+    text: Sekalian Kita liburan, katanya desanya juga asri
+    pfp: {fileID: 3184939432797331818, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: -4748702184737024587, guid: f39f245b36ce7a641992732b5266bb2a, type: 3}
+  - speaker: Ryan
+    text: Gua udah dapet juga kontak vila di desa itu.
+    pfp: {fileID: 3184939432797331818, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: -4748702184737024587, guid: f39f245b36ce7a641992732b5266bb2a, type: 3}
+  - speaker: Ryan
+    text: Besok kita berangkat
+    pfp: {fileID: 3184939432797331818, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: -4748702184737024587, guid: f39f245b36ce7a641992732b5266bb2a, type: 3}
+  - speaker: Tari
+    text: Oke lah gass.
+    pfp: {fileID: -415842496510086475, guid: 9730004f7056abe41b3df2ef91757386, type: 3}
+    background: {fileID: -4748702184737024587, guid: f39f245b36ce7a641992732b5266bb2a, type: 3}

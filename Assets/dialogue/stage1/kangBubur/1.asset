@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63900ac93b90d764abfce22b4b5e61b6, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: Ryan
+    text: kang buburnya satu.
+    pfp: {fileID: 1102108819684225473, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: 0}
+  - speaker: Kang Bubur
+    text: 'oke siapp..
+
+'
+    pfp: {fileID: -196245138857305096, guid: 5e8a76ca080ed87499fed384410965f5, type: 3}
+    background: {fileID: 0}
+  - speaker: Kang Bubur
+    text: 'kalian bukan orang sini kan?
+
+'
+    pfp: {fileID: -196245138857305096, guid: 5e8a76ca080ed87499fed384410965f5, type: 3}
+    background: {fileID: 0}
+  - speaker: Ryan
+    text: 'iya kang, kenapa ya?
+
+'
+    pfp: {fileID: -1558504309130386734, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: 0}
+  - speaker: Kang Bubur
+    text: 'walah udah jarang banget ada berkunjung ke desa ini, ga biasa aja
+
+'
+    pfp: {fileID: 7839481559900228051, guid: f4ada3c2e0869674fa430a17d1dd9e12, type: 3}
+    background: {fileID: 0}
+  - speaker: Kang Bubur
+    text: kalo ada aki aki nyamperin kalian dan bilang yang enggak-enggak cuekin
+      aja ya
+    pfp: {fileID: 7839481559900228051, guid: f4ada3c2e0869674fa430a17d1dd9e12, type: 3}
+    background: {fileID: 0}
+  - speaker: Kang Bubur
+    text: mbah wongso itu emang agak kurang dia setelah ditinggal anaknya
+    pfp: {fileID: -196245138857305096, guid: 5e8a76ca080ed87499fed384410965f5, type: 3}
+    background: {fileID: 0}
+  - speaker: Ryan
+    text: Oh, iya kang.
+    pfp: {fileID: 8660902975792385251, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: 0}

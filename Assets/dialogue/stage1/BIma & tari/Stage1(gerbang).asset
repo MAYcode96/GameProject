@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63900ac93b90d764abfce22b4b5e61b6, type: 3}
+  m_Name: Stage1(gerbang)
+  m_EditorClassIdentifier: 
+  lines:
+  - speaker: Ryan
+    text: Akhirnya sampe..
+    pfp: {fileID: 1102108819684225473, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: 0}
+  - speaker: Bima
+    text: Iya yan. tapi desanya agak sepi ya..
+    pfp: {fileID: -2230173363425985799, guid: 327e8b9cd5e381945af7f08cf069f539, type: 3}
+    background: {fileID: 0}
+  - speaker: Tari
+    text: Iya, kayak gak ada kehidupan
+    pfp: {fileID: 8507451965802014258, guid: e4c7652af4c4b8242b68a68b7e735ac6, type: 3}
+    background: {fileID: 0}
+  - speaker: Ryan
+    text: Yaudahlah, udah terlanjur ini.
+    pfp: {fileID: 1102108819684225473, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: 0}
+  - speaker: Ryan
+    text: Ayo masuk desanya, pak Edi udah nungguin kita ini
+    pfp: {fileID: -647588791701333756, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    background: {fileID: 0}

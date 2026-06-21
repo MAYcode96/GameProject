@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Pak Edi
-    text: nah, ini kondisi vila ini sekarang.
+    text: Nah, ini kondisi villa ini sekarang.
     pfp: {fileID: -8036185341388125364, guid: 1764f493c99d9ab48b023332f824f8d8, type: 3}
     background: {fileID: 0}
   - speaker: Pak Edi
@@ -26,6 +26,6 @@ MonoBehaviour:
     pfp: {fileID: -716451372785500452, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Tari
-    text: Enak aja, sama- sama nanti beresinnya.
+    text: Enak aja, sama sama nanti beresinnya.
     pfp: {fileID: -7906563958414467347, guid: 4a2bacba1eb667e41a0df1cdf804b484, type: 3}
     background: {fileID: 0}

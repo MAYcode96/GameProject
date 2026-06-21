@@ -22,7 +22,7 @@ MonoBehaviour:
     pfp: {fileID: -647588791701333756, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Ryan
-    text: ga sopan banget, mentang mentang dia nginap duluan disini
+    text: ga sopan banget, mentang mentang dia nginap duluan disini.
     pfp: {fileID: -647588791701333756, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Ryan

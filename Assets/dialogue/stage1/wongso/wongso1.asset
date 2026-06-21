@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Mbah Wongso
-    text: 'semua habis, habis tak bersisa hahhahahah....
+    text: 'Semua habis, habis tak bersisa hahhahahah....
 
 '
     pfp: {fileID: -4966511228610615359, guid: b26c53c2aede3034684a95a69666d7ad, type: 3}
     background: {fileID: 0}
   - speaker: Mbah Wongso
-    text: Cepat pergiiii, dari desa ini, hahahhah
+    text: Cepat pergiiii, dari desa ini, hahahhah....
     pfp: {fileID: -4966511228610615359, guid: b26c53c2aede3034684a95a69666d7ad, type: 3}
     background: {fileID: 0}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Asep
-    text: hei, kalian yang kemaren kan?
+    text: Hei, kalian yang kemaren kan?
     pfp: {fileID: 7034776713325852060, guid: af628510890700040a849418ca2747c5, type: 3}
     background: {fileID: 0}
   - speaker: Ryan

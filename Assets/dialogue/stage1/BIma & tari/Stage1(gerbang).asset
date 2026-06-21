@@ -22,7 +22,7 @@ MonoBehaviour:
     pfp: {fileID: -2230173363425985799, guid: 327e8b9cd5e381945af7f08cf069f539, type: 3}
     background: {fileID: 0}
   - speaker: Tari
-    text: Iya, kayak gak ada kehidupan
+    text: Iya, kayak gak ada kehidupan.
     pfp: {fileID: 8507451965802014258, guid: e4c7652af4c4b8242b68a68b7e735ac6, type: 3}
     background: {fileID: 0}
   - speaker: Ryan
@@ -30,6 +30,6 @@ MonoBehaviour:
     pfp: {fileID: 1102108819684225473, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Ryan
-    text: Ayo masuk desanya, pak Edi udah nungguin kita ini
+    text: Ayo masuk desanya, pak Edi udah nungguin kita ini.
     pfp: {fileID: -647588791701333756, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}

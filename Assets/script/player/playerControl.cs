@@ -3,14 +3,11 @@
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
-
-    public AudioClip footstepClip;
-    public float footstepInterval = 0.35f;
+    public float footstepInterval = 0.35f; // Sisakan intervalnya saja
 
     private Rigidbody2D rb;
     private float moveInput;
     private Animator anim;
-    private AudioSource audioSource;
     private bool canMove = true;
     private float footstepTimer = 0f;
 
@@ -18,13 +15,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-            audioSource = gameObject.AddComponent<AudioSource>();
-
-        audioSource.playOnAwake = false;
-        audioSource.loop = false;
     }
 
     void Update()
@@ -82,8 +72,8 @@ public class PlayerController : MonoBehaviour
 
     void PlayFootstep()
     {
-        if (footstepClip != null)
-            audioSource.PlayOneShot(footstepClip);
+        // Memanggil sound effect manager kamu
+        SoundEffectManager.Play("footstep");
     }
 
     void StopFootstep()

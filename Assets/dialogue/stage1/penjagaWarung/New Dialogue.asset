@@ -14,32 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Bu Warung
-    text: 'mau beli apa dek ?
+    text: 'Mau beli apa dek ?
 
 '
     pfp: {fileID: 3750979566614935720, guid: dd0ea02be7f6e2b44a570d31147ee243, type: 3}
     background: {fileID: 0}
   - speaker: Ryan
-    text: ' kerupuk sama teh galon buk.
+    text: ' Kerupuk sama teh galon buk.
 
 '
     pfp: {fileID: 8050617974308029505, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
-  - speaker: Penjaga Warung
-    text: oke, semua jadi 3 ribu ya.
+  - speaker: Bu Warung
+    text: Oke, semua jadi 3 ribu ya.
     pfp: {fileID: 6342314630346200457, guid: 7dba59381c4741440818d05694beeb47, type: 3}
     background: {fileID: 0}
-  - speaker: Penjaga Warung
+  - speaker: Bu Warung
     text: Kalian kesini ngapain dek, ada keluarga yang dikunjungi ya ?
     pfp: {fileID: 6342314630346200457, guid: 7dba59381c4741440818d05694beeb47, type: 3}
     background: {fileID: 0}
   - speaker: Ryan
-    text: oh enggak buk. kami dengar disini lagi krisis air bersih, jadi kami mau
+    text: Oh enggak bu. kami dengar disini lagi krisis air bersih, jadi kami mau
       bantu.
     pfp: {fileID: 8050617974308029505, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Ryan
-    text: "dan mau cari tau kok desa ini bisa punya hasil panen yang berlimpah, siapa
+    text: "Dan mau cari tau kok desa ini bisa punya hasil panen yang berlimpah, siapa
       tau bisa bermanfaat buat desa lainnya.\r"
     pfp: {fileID: 8050617974308029505, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}

@@ -18,7 +18,7 @@ MonoBehaviour:
     pfp: {fileID: -8503444539322447447, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 6799216245798168510, guid: 9c671fba460bbea47a2d5e138ebd0e7c, type: 3}
   - speaker: Ryan
-    text: "Krisis air Bersih\u2026 tapi hasil panen mereka nomor satu di kabupaten
+    text: "Krisis air bersih\u2026 tapi hasil panen mereka nomor satu di kabupaten
       ini."
     pfp: {fileID: 3184939432797331818, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 6799216245798168510, guid: 9c671fba460bbea47a2d5e138ebd0e7c, type: 3}
@@ -35,20 +35,20 @@ MonoBehaviour:
     pfp: {fileID: -647588791701333756, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: -4748702184737024587, guid: f39f245b36ce7a641992732b5266bb2a, type: 3}
   - speaker: Ryan
-    text: ni jadi langkah awal kita.
-    pfp: {fileID: 3184939432797331818, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    text: Ini bisa jadi langkah awal kita.
+    pfp: {fileID: 1102108819684225473, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: -4748702184737024587, guid: f39f245b36ce7a641992732b5266bb2a, type: 3}
   - speaker: Ryan
-    text: Sekalian Kita liburan, katanya desanya juga asri
-    pfp: {fileID: 3184939432797331818, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    text: Sekalian Kita liburan, katanya desanya juga asri.
+    pfp: {fileID: 1102108819684225473, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: -4748702184737024587, guid: f39f245b36ce7a641992732b5266bb2a, type: 3}
   - speaker: Ryan
-    text: Gua udah dapet juga kontak vila di desa itu.
-    pfp: {fileID: 3184939432797331818, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    text: Gua udah dapet juga kontak villa di desa itu.
+    pfp: {fileID: 1102108819684225473, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: -4748702184737024587, guid: f39f245b36ce7a641992732b5266bb2a, type: 3}
   - speaker: Ryan
-    text: Besok kita berangkat
-    pfp: {fileID: 3184939432797331818, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
+    text: Besok kita berangkat.
+    pfp: {fileID: -647588791701333756, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: -4748702184737024587, guid: f39f245b36ce7a641992732b5266bb2a, type: 3}
   - speaker: Tari
     text: Oke lah gass.

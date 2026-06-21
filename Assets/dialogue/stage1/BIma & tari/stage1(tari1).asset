@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Tari
-    text: nahh, sikebo aru bangun.
+    text: Nahh, sikebo baru bangun.
     pfp: {fileID: -415842496510086475, guid: 9730004f7056abe41b3df2ef91757386, type: 3}
     background: {fileID: 0}
   - speaker: 'Ryan '
@@ -22,11 +22,11 @@ MonoBehaviour:
     pfp: {fileID: 3184939432797331818, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Tari
-    text: wkwkwk, kebo mah mana mau ngaku dia kebo.
+    text: Wkwkwk, kebo mah mana mau ngaku dia kebo.
     pfp: {fileID: -415842496510086475, guid: 9730004f7056abe41b3df2ef91757386, type: 3}
     background: {fileID: 0}
   - speaker: Tari
-    text: Makan gih, DiBelakang ada singkong rebus.
+    text: Makan gih, di belakang ada singkong rebus.
     pfp: {fileID: -415842496510086475, guid: 9730004f7056abe41b3df2ef91757386, type: 3}
     background: {fileID: 0}
   - speaker: Ryan
@@ -46,11 +46,11 @@ MonoBehaviour:
     pfp: {fileID: 8507451965802014258, guid: e4c7652af4c4b8242b68a68b7e735ac6, type: 3}
     background: {fileID: 0}
   - speaker: Tari
-    text: ohh, bilang hati-hati kalo ketoilet, ntar didatengin penunggunya, wkwkwk
+    text: Ohh, bilang hati-hati kalo ke toilet, ntar didatengin penunggunya, wkwkwk.
     pfp: {fileID: -716451372785500452, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Tari
-    text: heh, jangan becanda gitu, gak baik.
+    text: Heh, jangan becanda gitu, gak baik.
     pfp: {fileID: -7149292610794270421, guid: 1193ad44da02961469345881e82e0d46, type: 3}
     background: {fileID: 0}
   - speaker: Ryan

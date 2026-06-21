@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Ryan
-    text: '"Woi! Apa maksudnya tumbal itu, Pak?!'
+    text: Woi! Apa maksudnya tumbal itu, Pak?!
     pfp: {fileID: -8503444539322447447, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Pak Edi
-    text: "ngapai kamu disini ? \r\n"
+    text: "Ngapain kamu disini ? \r\n"
     pfp: {fileID: 8285764644026358973, guid: 8346703025be1ba4eba9772ca334deae, type: 3}
     background: {fileID: 0}
   - speaker: Ryan
-    text: jawab dulu pertanyaan saya pak
+    text: Jawab dulu pertanyaan saya pak
     pfp: {fileID: -8503444539322447447, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Ryan
-    text: apa maksudnya tumbal itu.
+    text: Apa maksudnya tumbal itu.
     pfp: {fileID: -8503444539322447447, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Pak Edi
@@ -34,6 +34,6 @@ MonoBehaviour:
     pfp: {fileID: -788803216113979503, guid: a30c7ceb88c122849bff8826c19118bd, type: 3}
     background: {fileID: 0}
   - speaker: Pak Edi
-    text: oke saya jelaskan, ayo kita ke ruang tamu dulu.
+    text: Oke saya jelaskan, ayo kita ke ruang tamu dulu.
     pfp: {fileID: 6921746131002953608, guid: c54b0a69481ea4d41becdb90c8c6315e, type: 3}
     background: {fileID: 0}

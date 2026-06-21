@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63900ac93b90d764abfce22b4b5e61b6, type: 3}
-  m_Name: edi
+  m_Name: ryankamar
   m_EditorClassIdentifier: 
   lines:
-  - speaker: Pak Edi
-    text: Akhirnya kalian sampai.
-    pfp: {fileID: 6921746131002953608, guid: c54b0a69481ea4d41becdb90c8c6315e, type: 3}
+  - speaker: Ryan
+    text: Kalung apa ini?
+    pfp: {fileID: 1102108819684225473, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
-  - speaker: Pak Edi
-    text: Ayo cepat masuk ke dalam lubangnya dan kalahkan monster itu.
-    pfp: {fileID: -788803216113979503, guid: a30c7ceb88c122849bff8826c19118bd, type: 3}
+  - speaker: Ryan
+    text: Bawa aja ah, siapa tau butuh.
+    pfp: {fileID: -647588791701333756, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}

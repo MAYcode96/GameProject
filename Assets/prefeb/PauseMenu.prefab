@@ -736,7 +736,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 822602573993229590, guid: 4b253e5f929cf3d4ab6b3b6bcd93ef02, type: 3}
         m_TargetAssemblyTypeName: SoundEffectManager, Assembly-CSharp
         m_MethodName: PlayClickSound
         m_Mode: 1
@@ -1252,9 +1252,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3735250166061270324, guid: f84c756347b31e84f918e528dbe54edd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 822602573993229590, guid: 4b253e5f929cf3d4ab6b3b6bcd93ef02, type: 3}
+    - target: {fileID: 3735250166061270324, guid: f84c756347b31e84f918e528dbe54edd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 8100964815962543917}
+    - target: {fileID: 3735250166061270324, guid: f84c756347b31e84f918e528dbe54edd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayClickSound
+      objectReference: {fileID: 0}
     - target: {fileID: 6829723462118777507, guid: f84c756347b31e84f918e528dbe54edd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

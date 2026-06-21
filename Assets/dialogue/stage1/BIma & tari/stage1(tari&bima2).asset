@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Bima
-    text: gua mau langsung ke kamar deh.
+    text: Gua mau langsung ke kamar deh,
     pfp: {fileID: -5200401870118694227, guid: b42ebf773f42bb848bd76ef226a4fd33, type: 3}
     background: {fileID: 0}
   - speaker: Bima

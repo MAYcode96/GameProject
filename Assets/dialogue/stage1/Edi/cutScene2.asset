@@ -14,66 +14,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Pak Edi
-    text: 'jadi itu adalah moster karang turi. '
+    text: 'Jadi itu adalah moster karang turi. '
     pfp: {fileID: -8178650773239659235, guid: 5652f932eb4f44348904375402acaca5, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Pak Edi
-    text: itu moster hasil perjanjian leluhur kami yang membuat lahan kami jadi subur
+    text: Itu moster hasil perjanjian leluhur kami yang membuat lahan kami jadi subur.
     pfp: {fileID: -8178650773239659235, guid: 5652f932eb4f44348904375402acaca5, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Pak Edi
-    text: "dulu desa ini tidak bisa ditanami karna yaahhh, seperti yang kalian lihat,
-      air di desa ini tidakbisadipakai dari dulu. \r"
+    text: "Dulu desa ini tidak bisa ditanami karna yaahhh, seperti yang kalian lihat,
+      air di desa ini tidak bisa dipakai, sudah seperti ini dari dulu. \r"
     pfp: {fileID: -8178650773239659235, guid: 5652f932eb4f44348904375402acaca5, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Pak Edi
-    text: jadi leluhur kami membuat perjanjian dengan moster itu untuk membuat tanah
+    text: Jadi leluhur kami membuat perjanjian dengan moster itu untuk membuat tanah
       ini menjadi subur.
     pfp: {fileID: -8178650773239659235, guid: 5652f932eb4f44348904375402acaca5, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Pak Edi
-    text: tapi dia membutuhkan tumbal setiap beberapa tahun.
+    text: Tapi dia membutuhkan tumbal setiap beberapa tahun.
     pfp: {fileID: -8178650773239659235, guid: 5652f932eb4f44348904375402acaca5, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Tari
-    text: "dan bapak mau numbalin kami? \r"
+    text: "Dan bapak mau numbalin kami? \r"
     pfp: {fileID: -7149292610794270421, guid: 1193ad44da02961469345881e82e0d46, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Bima
-    text: "tega banget pak. \r"
+    text: "Tega banget pak. \r"
     pfp: {fileID: -6218296853217754512, guid: 63fabdce159583a4d878400a99ff0823, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Pak Edi
-    text: bapak minta maaf.
+    text: Bapak minta maaf.
     pfp: {fileID: -8178650773239659235, guid: 5652f932eb4f44348904375402acaca5, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Pak Edi
-    text: tapi ini satu 2nya cara untuk membuat desa ini jadi subur.
+    text: Tapi ini satu satunya cara untuk membuat desa ini jadi subur.
     pfp: {fileID: -8178650773239659235, guid: 5652f932eb4f44348904375402acaca5, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Pak Edi
-    text: karna tidak mungkin menanan tanaman kalau kondisi air seperi ini.
+    text: Karna tidak mungkin menanan tanaman kalau kondisi air seperti ini.
     pfp: {fileID: -8178650773239659235, guid: 5652f932eb4f44348904375402acaca5, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Ryan
-    text: nahh, kalo soal air pak
+    text: Nahh, kalo soal air pak.
     pfp: {fileID: -716451372785500452, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Ryan
-    text: 'kami sebenernya kesini buat ngenalin teknologi pemurnian air pak. '
+    text: 'Kami sebenernya kesini buat ngenalin teknologi pemurnian air pak. '
     pfp: {fileID: -716451372785500452, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Ryan
-    text: jadi desa ini gak perlu lagi perjanjian dengan moster itu.
+    text: Jadi desa ini gak perlu lagi perjanjian dengan moster itu.
     pfp: {fileID: 8660902975792385251, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
   - speaker: Pak Edi
-    text: gak mudah buat batalin perjanjian itu.ini perjanjian leluhur, bahkan saya
-      gak tau caranya.
-    pfp: {fileID: -8178650773239659235, guid: 5652f932eb4f44348904375402acaca5, type: 3}
-    background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}
-  - speaker: Pak Edi
-    text: gak mudah buat batalin perjanjian itu.ini perjanjian leluhur, bahkan saya
+    text: Gak mudah buat batalin perjanjian itu. Ini perjanjian leluhur, bahkan saya
       gak tau caranya.
     pfp: {fileID: -8178650773239659235, guid: 5652f932eb4f44348904375402acaca5, type: 3}
     background: {fileID: 3375232501854110699, guid: 0f7a3a2d8dacd3342b94b339846a67c5, type: 3}

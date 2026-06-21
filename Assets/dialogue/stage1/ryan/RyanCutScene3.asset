@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Ryan
-    text: Huaaahhh, pagi gini enaknya jalan pagi kali ya.
+    text: Huaaahhh, pagi gini enaknya jalan pagi.
     pfp: {fileID: -96499732858103741, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Ryan

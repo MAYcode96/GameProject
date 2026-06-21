@@ -18,11 +18,11 @@ MonoBehaviour:
     pfp: {fileID: -8036185341388125364, guid: 1764f493c99d9ab48b023332f824f8d8, type: 3}
     background: {fileID: 0}
   - speaker: Pak Edi
-    text: 'Desa sekarang udah mulai sepi '
+    text: 'Desa sekarang udah mulai sepi. '
     pfp: {fileID: -8036185341388125364, guid: 1764f493c99d9ab48b023332f824f8d8, type: 3}
     background: {fileID: 0}
   - speaker: Ryan
-    text: Iya pak, makasih juga kami udah di izinin nginap di villa bapak.
+    text: Iya pak, makasih juga kami udah diizinin nginap di villa bapak.
     pfp: {fileID: 8660902975792385251, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Tari
@@ -35,7 +35,7 @@ MonoBehaviour:
     background: {fileID: 0}
   - speaker: Pak Edi
     text: Mungkin mereka gak betah kali ya mbak, hahaha...
-    pfp: {fileID: -8036185341388125364, guid: 1764f493c99d9ab48b023332f824f8d8, type: 3}
+    pfp: {fileID: 6921746131002953608, guid: c54b0a69481ea4d41becdb90c8c6315e, type: 3}
     background: {fileID: 0}
   - speaker: Tari
     text: Oh gitu ya pak..

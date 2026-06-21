@@ -14,40 +14,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Ryan
-    text: kang buburnya satu.
+    text: Kang buburnya satu.
     pfp: {fileID: 1102108819684225473, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Kang Bubur
-    text: 'oke siapp..
+    text: 'Oke siapp..
 
 '
     pfp: {fileID: -196245138857305096, guid: 5e8a76ca080ed87499fed384410965f5, type: 3}
     background: {fileID: 0}
   - speaker: Kang Bubur
-    text: 'kalian bukan orang sini kan?
+    text: 'Kalian bukan orang sini kan?
 
 '
     pfp: {fileID: -196245138857305096, guid: 5e8a76ca080ed87499fed384410965f5, type: 3}
     background: {fileID: 0}
   - speaker: Ryan
-    text: 'iya kang, kenapa ya?
+    text: 'Iya kang, kenapa ya?
 
 '
     pfp: {fileID: -1558504309130386734, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Kang Bubur
-    text: 'walah udah jarang banget ada berkunjung ke desa ini, ga biasa aja
+    text: 'Walah udah jarang banget ada berkunjung ke desa ini, ga biasa aja.
 
 '
     pfp: {fileID: 7839481559900228051, guid: f4ada3c2e0869674fa430a17d1dd9e12, type: 3}
     background: {fileID: 0}
   - speaker: Kang Bubur
-    text: kalo ada aki aki nyamperin kalian dan bilang yang enggak-enggak cuekin
-      aja ya
+    text: Kalo ada aki aki nyamperin kalian dan bilang yang enggak-enggak cuekin
+      aja ya.
     pfp: {fileID: 7839481559900228051, guid: f4ada3c2e0869674fa430a17d1dd9e12, type: 3}
     background: {fileID: 0}
   - speaker: Kang Bubur
-    text: mbah wongso itu emang agak kurang dia setelah ditinggal anaknya
+    text: Mbah wongso itu emang agak kurang dia setelah ditinggal anaknya
     pfp: {fileID: -196245138857305096, guid: 5e8a76ca080ed87499fed384410965f5, type: 3}
     background: {fileID: 0}
   - speaker: Ryan

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - speaker: Ryan
-    text: Bang, tau vilanya pak edi gak yahh?
+    text: Bang, tau vilanya pak edi gak yah?
     pfp: {fileID: 8660902975792385251, guid: 717fe866f10db74429e9a9133c64ab34, type: 3}
     background: {fileID: 0}
   - speaker: Asep

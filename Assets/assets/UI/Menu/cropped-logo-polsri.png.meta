@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cropped-logo-polsri_0: 3063691563498210258
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      logo tekkom_0: -5512647456679738503
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

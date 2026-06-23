@@ -145,12 +145,12 @@ TextureImporter:
       name: Pemancing_idle5 1_0
       rect:
         serializedVersion: 2
-        x: 66
-        y: 55
-        width: 324
-        height: 301
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 1280
+        height: 1280
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,33 +163,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Pemancing_idle5 1_1
-      rect:
-        serializedVersion: 2
-        x: 443
-        y: 48
-        width: 738
-        height: 726
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b0bb19348e575e7a0800000000000000
-      internalID: -6348538459282359541
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: f5caa1389d674df4096ba0bdb0445ea9
     internalID: 0
     vertices: []
     indices: 
@@ -197,10 +175,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":1280.0,"y":1280.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Pemancing_idle5 1_0: -4938096777738016034
-      Pemancing_idle5 1_1: -6348538459282359541
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
